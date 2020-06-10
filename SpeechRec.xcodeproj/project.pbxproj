@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA083D6024912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png in Resources */ = {isa = PBXBuildFile; fileRef = BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */; };
 		BA8C79C1248807D600C634CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C0248807D600C634CE /* AppDelegate.swift */; };
 		BA8C79C3248807D600C634CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C2248807D600C634CE /* ViewController.swift */; };
 		BA8C79C6248807D600C634CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8C79C4248807D600C634CE /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スクリーンショット 2020-06-11 0.10.09.png"; sourceTree = "<group>"; };
 		BA8C79BD248807D600C634CE /* SpeechRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8C79C0248807D600C634CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8C79C2248807D600C634CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		BA8C79BF248807D600C634CE /* SpeechRec */ = {
 			isa = PBXGroup;
 			children = (
+				BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */,
 				BA8C79C0248807D600C634CE /* AppDelegate.swift */,
 				BA8C79C2248807D600C634CE /* ViewController.swift */,
 				BA8C79C4248807D600C634CE /* Main.storyboard */,
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA083D6024912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png in Resources */,
 				BA8C79D624880DDF00C634CE /* icon.png in Resources */,
 				BA8C79CE248807D900C634CE /* LaunchScreen.storyboard in Resources */,
 				BA8C79CB248807D900C634CE /* Assets.xcassets in Resources */,

@@ -13,12 +13,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var detectedText: UILabel!
     @IBOutlet var StartButton: UIButton!
+    @IBOutlet var resultLabel: UILabel!
     
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
     var tapCount = 0
+    var modelPhrase = String("Turn right on the red light")
+    var bestString:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +54,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
             if let result = result {
-                let bestString = result.bestTranscription.formattedString
-                self.detectedText.text = bestString
+                self.bestString = result.bestTranscription.formattedString
+                self.detectedText.text = self.bestString
                 
             } else if let error = error {
                 print(error)
@@ -65,13 +68,22 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         tapCount+=1
         
             
-            if tapCount == 1{
+            if tapCount%2 == 1{
                 self.recordAndRecognizeSpeech()
                 StartButton.setTitle("Stop", for: .normal)
-            } else {
+            } else if tapCount%2 == 0{
                 recognitionTask?.cancel()
                 StartButton.setTitle("Start", for: .normal)
                 tapCount = 0
+                if modelPhrase == bestString{
+                    print("correct pronunciation")
+                    self.resultLabel.textColor = UIColor.green
+                    self.resultLabel.text = String("Correct Pronunciation")
+                } else{
+                    print("wrong pronunciation")
+                    self.resultLabel.textColor = UIColor.red
+                    self.resultLabel.text = String("Wrong Pronunciation")
+                }
             }
             
         
