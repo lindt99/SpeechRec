@@ -71,14 +71,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Turn right on the red light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-cI-KAF">
+                                <rect key="frame" x="83" y="370" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="StartButton" destination="Xfq-F8-bwv" id="pOC-Ys-WVW"/>
-                        <outlet property="detectedText" destination="TVg-RU-5gs" id="J7a-gL-76V"/>
+                        <outlet property="detectedTextLabel" destination="TVg-RU-5gs" id="kvx-vv-kAT"/>
                         <outlet property="resultLabel" destination="DQc-rI-M7y" id="mVH-3g-xF4"/>
+                        <outlet property="testLabel" destination="d3h-cI-KAF" id="rYt-z9-jxq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

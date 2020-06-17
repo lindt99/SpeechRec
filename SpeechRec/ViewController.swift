@@ -11,9 +11,10 @@ import Speech
 
 class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
-    @IBOutlet var detectedText: UILabel!
+    @IBOutlet var detectedTextLabel: UILabel!
     @IBOutlet var StartButton: UIButton!
     @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var testLabel: UILabel!
     
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -55,7 +56,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
             if let result = result {
                 self.bestString = result.bestTranscription.formattedString
-                self.detectedText.text = self.bestString
+                self.detectedTextLabel.text = self.bestString
                 
             } else if let error = error {
                 print(error)
@@ -79,14 +80,19 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     print("correct pronunciation")
                     self.resultLabel.textColor = UIColor.green
                     self.resultLabel.text = String("Correct Pronunciation")
+                    //detectedText.textColor = UIColor.green
+                    var greenString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 15))
+                    detectedTextLabel.attributedText = greenString
                 } else{
                     print("wrong pronunciation")
                     self.resultLabel.textColor = UIColor.red
                     self.resultLabel.text = String("Wrong Pronunciation")
+                    var difference = zip(modelPhrase, bestString).filter{$0 != $1}
+                    print(difference)
                 }
             }
             
-        
 
         
 
