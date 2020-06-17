@@ -90,6 +90,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     self.resultLabel.text = String("Wrong Pronunciation")
                     var difference = zip(modelPhrase, bestString).filter{$0 != $1}
                     print(difference)
+                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 5, length: 1))
+                    detectedTextLabel.attributedText = redString
                 }
             }
             
