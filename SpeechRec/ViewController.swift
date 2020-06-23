@@ -70,29 +70,44 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         
             
             if tapCount%2 == 1{
+                
                 self.recordAndRecognizeSpeech()
                 StartButton.setTitle("Stop", for: .normal)
+                
             } else if tapCount%2 == 0{
+                
                 recognitionTask?.cancel()
                 StartButton.setTitle("Start", for: .normal)
                 tapCount = 0
+                
                 if modelPhrase == bestString{
+                    
                     print("correct pronunciation")
+                    
+                    //change result label's text and color
                     self.resultLabel.textColor = UIColor.green
                     self.resultLabel.text = String("Correct Pronunciation")
-                    //detectedText.textColor = UIColor.green
+                    
+                    //test for changing a part of the phrase into green
                     var greenString = NSMutableAttributedString(string: detectedTextLabel.text!)
-                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 15))
+                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 5))
                     detectedTextLabel.attributedText = greenString
+                    
                 } else{
+                    
                     print("wrong pronunciation")
+                    
+                    //change result label's text and color
                     self.resultLabel.textColor = UIColor.red
                     self.resultLabel.text = String("Wrong Pronunciation")
                     var difference = zip(modelPhrase, bestString).filter{$0 != $1}
                     print(difference)
+                    
+                    //test for changing a part of the phrase into red
                     var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
                     redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 5, length: 1))
                     detectedTextLabel.attributedText = redString
+                    
                 }
             }
             
