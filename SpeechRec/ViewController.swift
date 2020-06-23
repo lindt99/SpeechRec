@@ -20,7 +20,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
-    var tapCount = 0
+//    var tapCount = 0
+    var flag: Bool = true
     var modelPhrase = String("Turn right on the red light")
     var bestString:String!
     
@@ -66,20 +67,19 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBAction func startButton(_ sender: UIButton){
         
-        tapCount+=1
-        
-            
-            if tapCount%2 == 1{
                 
+        if flag == true {
+            
                 self.recordAndRecognizeSpeech()
                 StartButton.setTitle("Stop", for: .normal)
-                
-            } else if tapCount%2 == 0{
-                
+            
+        } else if flag == false {
                 recognitionTask?.cancel()
                 StartButton.setTitle("Start", for: .normal)
-                tapCount = 0
-                
+
+            //attempted to stop processing audio but still crashes
+            audioEngine.inputNode.removeTap(onBus: 0)
+            
                 if modelPhrase == bestString{
                     
                     print("correct pronunciation")
@@ -109,7 +109,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     detectedTextLabel.attributedText = redString
                     
                 }
-            }
+
+        }
             
 
         
