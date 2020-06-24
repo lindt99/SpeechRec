@@ -21,9 +21,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
 //    var tapCount = 0
-    var flag: Bool = true
+    var isRecording: Bool = false
     var modelPhrase = String("Turn right on the red light")
-    var bestString:String!
+    var bestString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,17 +67,18 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBAction func startButton(_ sender: UIButton){
         
+        isRecording.toggle()
                 
-        if flag == true {
+        if isRecording == true {
             
                 self.recordAndRecognizeSpeech()
                 StartButton.setTitle("Stop", for: .normal)
             
-        } else if flag == false {
+        } else if isRecording == false {
                 recognitionTask?.cancel()
                 StartButton.setTitle("Start", for: .normal)
 
-            //attempted to stop processing audio but still crashes
+            //stop processing audio
             audioEngine.inputNode.removeTap(onBus: 0)
             
                 if modelPhrase == bestString{
