@@ -1,0 +1,31 @@
+{
+  "Mac" : [
+    {
+      "name" : "Diff",
+      "hash" : "ada5d0eecc7101f94b818d544fb780f6a7958c0372dd22a4b45ba15d34af12de",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "Diff",
+      "hash" : "47cf6be3881f401e613b61ca4f4c39a969e4f856ac46dca2765e8675eca7c4ab",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "Diff",
+      "hash" : "c6809b8321eb3ff7e2d6faccf1a0abf7aa4e233a32a6abb67b750b8c8245724b",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ],
+  "commitish" : "v0.2.5",
+  "iOS" : [
+    {
+      "name" : "Diff",
+      "hash" : "b6bbd9895734a906dfa8f774c24aca7ddc9c4bf2d25196c2d39142d3df19b487",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ]
+}

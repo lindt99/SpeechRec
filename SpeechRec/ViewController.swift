@@ -8,6 +8,7 @@
 
 import UIKit
 import Speech
+import Diff
 
 class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
@@ -20,9 +21,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
-//    var tapCount = 0
     var isRecording: Bool = false
-    var modelPhrase = String("Turn right on the red light")
+    var modelPhrase = String("Hello world is the first step to coding")
     var bestString: String = ""
     
     override func viewDidLoad() {
@@ -96,18 +96,37 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                 } else{
                     
+                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
+                    
+                    let text = "😄😄😄Long paragraph saying!"
+                    let attributedString = NSMutableAttributedString(string: text)
+
+                    text.enumerateSubstrings(in: text.startIndex..<text.endIndex, options: .byWords) {
+                        (substring, substringRange, _, _) in
+                        if substring == "saying" {
+                            attributedString.addAttribute(.foregroundColor, value: UIColor.red,
+                                                          range: NSRange(substringRange, in: text))
+                        }
+                    }
+                    print("attributedString:", attributedString)
+                    
+                    
+//                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+//                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: diffRange)
+//                    print(diffRange)
+//                    print(diffString)
                     print("wrong pronunciation")
                     
-                    //change result label's text and color
-                    self.resultLabel.textColor = UIColor.red
-                    self.resultLabel.text = String("Wrong Pronunciation")
-                    var difference = zip(modelPhrase, bestString).filter{$0 != $1}
-                    print(difference)
-                    
-                    //test for changing a part of the phrase into red
-                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
-                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 5, length: 1))
-                    detectedTextLabel.attributedText = redString
+//                    //change result label's text and color
+//                    self.resultLabel.textColor = UIColor.red
+//                    self.resultLabel.text = String("Wrong Pronunciation")
+//                    var difference = zip(modelPhrase, bestString).filter{$0 != $1}
+//                    print(difference)
+//
+//                    //test for changing a part of the phrase into red
+//                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+//                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 5, length: 1))
+//                    detectedTextLabel.attributedText = redString
                     
                 }
 
