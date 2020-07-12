@@ -98,23 +98,20 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                     let (diffRange, diffString) = diff(modelPhrase, bestString)!
                     
-                    let text = "😄😄😄Long paragraph saying!"
-                    let attributedString = NSMutableAttributedString(string: text)
-
-                    text.enumerateSubstrings(in: text.startIndex..<text.endIndex, options: .byWords) {
-                        (substring, substringRange, _, _) in
-                        if substring == "saying" {
-                            attributedString.addAttribute(.foregroundColor, value: UIColor.red,
-                                                          range: NSRange(substringRange, in: text))
-                        }
-                    }
-                    print("attributedString:", attributedString)
                     
                     
 //                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
 //                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: diffRange)
-//                    print(diffRange)
-//                    print(diffString)
+                    print(diffRange)
+                    print(diffString)
+                    
+                    func printType(_ value: Any) {
+                        let t = type(of: value)
+                        print("'\(value)' of type '\(t)'")
+                    }
+                    
+                    printType(diffRange)
+                    printType(diffString)
                     print("wrong pronunciation")
                     
 //                    //change result label's text and color
