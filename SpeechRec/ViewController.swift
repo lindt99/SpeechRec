@@ -96,22 +96,30 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                 } else{
                     
-                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
+                    var (diffRange, diffString) = diff(modelPhrase, bestString)!
+                    
+                    //BELOW IS NOT WORKING
+                    //var diffRangeNS = diffRange as NSString
+
+                    var rangeLocation = diffRange.startIndex
+                    var rangeLength = diffString.count
                     
                     
+                    print("rangeLocation:" + String(rangeLocation))
+                    print("rangeLength:" + String(rangeLength))
                     
-//                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
-//                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: diffRange)
-                    print(diffRange)
-                    print(diffString)
-                    
+                    //var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    //redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 15, length: 3))
+
+
+                    //function to find the type of the entered variable
                     func printType(_ value: Any) {
                         let t = type(of: value)
                         print("'\(value)' of type '\(t)'")
                     }
                     
-                    printType(diffRange)
-                    printType(diffString)
+                    printType(rangeLocation)
+                    printType(rangeLength)
                     print("wrong pronunciation")
                     
 //                    //change result label's text and color
@@ -121,9 +129,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 //                    print(difference)
 //
 //                    //test for changing a part of the phrase into red
-//                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
-//                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 5, length: 1))
-//                    detectedTextLabel.attributedText = redString
+                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: rangeLocation, length: rangeLength))
+                    detectedTextLabel.attributedText = redString
                     
                 }
 
