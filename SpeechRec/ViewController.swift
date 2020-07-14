@@ -104,7 +104,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     var rangeLocation = diffRange.startIndex
                     var rangeLength = diffString.count
                     
-                    
+                    print(diffRange)
+                    print("diffString: " + String(diffString))
                     print("rangeLocation:" + String(rangeLocation))
                     print("rangeLength:" + String(rangeLength))
                     
@@ -122,15 +123,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     printType(rangeLength)
                     print("wrong pronunciation")
                     
-//                    //change result label's text and color
-//                    self.resultLabel.textColor = UIColor.red
-//                    self.resultLabel.text = String("Wrong Pronunciation")
-//                    var difference = zip(modelPhrase, bestString).filter{$0 != $1}
-//                    print(difference)
-//
-//                    //test for changing a part of the phrase into red
+
+             //patterns for changing a part of the phrase into red
                     var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    
+                    //pattern 1
                     redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: rangeLocation, length: rangeLength))
+                    
+                    //pattern 2
+                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: diffRange.startIndex, length: diffRange.endIndex - diffRange.startIndex))
                     detectedTextLabel.attributedText = redString
                     
                 }
