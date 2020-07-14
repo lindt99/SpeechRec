@@ -103,28 +103,16 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 
                     var rangeLocation = diffRange.startIndex
                     var rangeLength = diffString.count
-                    
-                    print(diffRange)
-                    print("diffString: " + String(diffString))
-                    print("rangeLocation:" + String(rangeLocation))
-                    print("rangeLength:" + String(rangeLength))
-                    
-                    //var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
-                    //redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 15, length: 3))
 
-
-                    //function to find the type of the entered variable
-                    func printType(_ value: Any) {
-                        let t = type(of: value)
-                        print("'\(value)' of type '\(t)'")
-                    }
+                    //Range to NSRange
+                    var originalString = bestString as NSString
                     
-                    printType(rangeLocation)
-                    printType(rangeLength)
-                    print("wrong pronunciation")
+                    let firstBraceIndex = originalString.range(of: diffString) //Range<Index>
+                    let firstClosingBraceIndex = originalString.range(of: diffString)
                     
+                    let range = NSMakeRange(firstBraceIndex.startIndex, firstClosingBraceIndex.endIndex)
 
-             //patterns for changing a part of the phrase into red
+        //patterns for changing a part of the phrase into red
                     var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
                     
                     //pattern 1
@@ -134,6 +122,24 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: diffRange.startIndex, length: diffRange.endIndex - diffRange.startIndex))
                     detectedTextLabel.attributedText = redString
                     
+                    
+                    
+                    
+        //for debugging purposes
+                    //function to find the type of the entered variable
+                    func printType(_ value: Any) {
+                        let t = type(of: value)
+                        print("'\(value)' of type '\(t)'")
+                    }
+                    
+                    print("range: " + range)
+                    print(diffRange)
+                    print("diffString: " + String(diffString))
+                    print("rangeLocation:" + String(rangeLocation))
+                    print("rangeLength:" + String(rangeLength))
+                    print("wrong pronunciation")
+                    printType(rangeLocation)
+                    printType(rangeLength)
                 }
 
         }
