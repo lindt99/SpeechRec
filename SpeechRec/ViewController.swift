@@ -14,7 +14,10 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var detectedTextLabel: UILabel!
     @IBOutlet var StartButton: UIButton!
-    @IBOutlet var resultLabel: UILabel!
+    @IBOutlet weak var resultImage: UIImageView!
+    @IBOutlet weak var startHat: UIImageView!
+    @IBOutlet var buttonBG: UIView!
+    
     @IBOutlet var testLabel: UILabel!
     
     let audioEngine = AVAudioEngine()
@@ -28,6 +31,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        buttonBG.layer.cornerRadius = 35
     }
     
     func recordAndRecognizeSpeech(){
@@ -72,11 +76,11 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         if isRecording == true {
             
                 self.recordAndRecognizeSpeech()
-                StartButton.setTitle("Stop", for: .normal)
+                StartButton.setTitle("Stop Recording", for: .normal)
             
         } else if isRecording == false {
                 recognitionTask?.cancel()
-                StartButton.setTitle("Start", for: .normal)
+                StartButton.setTitle("Start Recording", for: .normal)
 
             //stop processing audio
             audioEngine.inputNode.removeTap(onBus: 0)
@@ -85,35 +89,42 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                     print("correct pronunciation")
                     
-                    //change result label's text and color
-                    self.resultLabel.textColor = UIColor.green
-                    self.resultLabel.text = String("Correct Pronunciation")
+                    //change hat image
+                    if (startHat.alpha > 0){
+                        //delete orage hat if still visible
+                        startHat.alpha = 0
+                    } else {
+                        
+                    }
+                    resultImage.image = UIImage(named: "hatgreenr")
                     
-                    //test for changing a part of the phrase into green
-                    var greenString = NSMutableAttributedString(string: detectedTextLabel.text!)
-                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 5))
-                    detectedTextLabel.attributedText = greenString
+                    
+//                    //test for changing a part of the phrase into green
+//                    let greenString = NSMutableAttributedString(string: detectedTextLabel.text!)
+//                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 5))
+//                    detectedTextLabel.attributedText = greenString
                     
                 } else{
                     
-                    var (diffRange, diffString) = diff(modelPhrase, bestString)!
+                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
                     
-                    //BELOW IS NOT WORKING
-                    //var diffRangeNS = diffRange as NSString
+                    //change hat image
+                    if (startHat.alpha > 0){
+                        //delete orage hat if still visible
+                        startHat.alpha = 0
+                    } else {
+                        
+                    }
+                    resultImage.image = UIImage(named: "hatredr")
+                    
 
-                    var rangeLocation = diffRange.startIndex
-                    var rangeLength = diffString.count
+                    let rangeLocation = diffRange.startIndex
+                    let rangeLength = diffString.count
 
-                    //Range to NSRange
-                    var originalString = bestString as NSString
-                    
-                    let firstBraceIndex = originalString.range(of: diffString) //Range<Index>
-                    let firstClosingBraceIndex = originalString.range(of: diffString)
-                    
-                    let range = NSMakeRange(firstBraceIndex.startIndex, firstClosingBraceIndex.endIndex)
+
 
         //patterns for changing a part of the phrase into red
-                    var redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    let redString = NSMutableAttributedString(string: detectedTextLabel.text!)
                     
                     //pattern 1
                     redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: rangeLocation, length: rangeLength))
@@ -124,6 +135,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                     
                     
+        //for notes
+                    //experimenting conversion of Range to NSRange
+                    let originalString = bestString as NSString
+                    
+                    let range = originalString.range(of: diffString)
+                    
                     
         //for debugging purposes
                     //function to find the type of the entered variable
@@ -132,7 +149,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                         print("'\(value)' of type '\(t)'")
                     }
                     
-                    print("range: " + range)
+                    print(range)
                     print(diffRange)
                     print("diffString: " + String(diffString))
                     print("rangeLocation:" + String(rangeLocation))
