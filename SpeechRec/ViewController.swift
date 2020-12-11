@@ -104,59 +104,107 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 //                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 5))
 //                    detectedTextLabel.attributedText = greenString
                     
+                //uuid,answer,spokenPhraseをMySQLに保存
+                    //POSTリクエスト用の変数定義
+                    var postString: String? = nil
+                    let urlpost = URL(string: "http://martini.ht.sfc.keio.ac.jp/~lindt/testpost.php")!
+                    var requestpost = URLRequest(url: urlpost)
+                    requestpost.httpMethod = "POST"
+
+                    //uuid取得
+                    let uuid = UIDevice.current.identifierForVendor?.uuidString
+                    var answer = "correct"
+
+                    postString = "uuid=12345"
+                    ////      POSTリクエストPHPに送信
+
+                    requestpost.httpBody = postString?.data(using: .utf8)
+                    let taskpost = URLSession.shared.dataTask(with: requestpost, completionHandler: {
+                        (data, response, error) in
+
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+
+                        print("response: \(response!)")
+
+                        let phpOutput = String(data: data!, encoding: .utf8)!
+                        print("php output: \(phpOutput)")
+
+
+                    })
+                    taskpost.resume()
+                //MySQL終わり
+                    
+                    
+                    
+
+                               
+
+                    
+                    
                 } else{
                     
-                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
+//                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
                     
                     //change hat image
                     if (startHat.alpha > 0){
-                        //delete orage hat if still visible
+                        //delete orange hat if still visible
                         startHat.alpha = 0
                     } else {
                         
                     }
                     resultImage.image = UIImage(named: "hatredr")
                     
-
-                    let rangeLocation = diffRange.startIndex
-                    let rangeLength = diffString.count
-
-
-
-        //patterns for changing a part of the phrase into red
-                    let redString = NSMutableAttributedString(string: detectedTextLabel.text!)
+                    let modelarr:[String] = modelPhrase.components(separatedBy: " ")
+                    let voicearr:[String] = bestString.components(separatedBy: " ")
                     
-                    //pattern 1
-                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: rangeLocation, length: rangeLength))
+                    let voicearrlength = voicearr.count - 1
                     
-                    //pattern 2
-                    redString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: diffRange.startIndex, length: diffRange.endIndex - diffRange.startIndex))
-                    detectedTextLabel.attributedText = redString
+                    //ordered collection diffing
+                    let diff = voicearr.difference(from: modelarr)
                     
+                    var word:[NSAttributedString] = []
                     
-                    
-        //for notes
-                    //experimenting conversion of Range to NSRange
-                    let originalString = bestString as NSString
-                    
-                    let range = originalString.range(of: diffString)
-                    
-                    
-        //for debugging purposes
-                    //function to find the type of the entered variable
-                    func printType(_ value: Any) {
-                        let t = type(of: value)
-                        print("'\(value)' of type '\(t)'")
+                    for voicearrword in 0...voicearrlength{
+                        word.append(NSAttributedString(string: (voicearr[voicearrword])))
+                        //print("voicearrword: " + String(voicearrword) + "voicearrklen: " + String(voicearrlength) )
                     }
                     
-                    print(range)
-                    print(diffRange)
-                    print("diffString: " + String(diffString))
-                    print("rangeLocation:" + String(rangeLocation))
-                    print("rangeLength:" + String(rangeLength))
-                    print("wrong pronunciation")
-                    printType(rangeLocation)
-                    printType(rangeLength)
+                    print("word:")
+                    print(word)
+                    
+                    //赤文字設定
+                    let redAttribute:[NSAttributedString.Key:Any]=[
+                        .foregroundColor: UIColor.red
+                    ]
+                    
+                    //赤文字変更後の文字列
+                    let coloredString = NSMutableAttributedString()
+                    
+                    for change in diff{
+                        switch change{
+                        case .remove(let offset, let element, _):
+                            print("remove index:" + String(offset) + "word:" + element)
+                        case .insert(let offset, let element, _):
+                            //余計な単語を赤文字にする
+                            word[offset] = NSAttributedString(string:element, attributes: redAttribute)
+                            print("offset: " + String(offset) + " string:" + element)
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    
+                    let space = " "
+                    for i in 0...voicearrlength{
+                    coloredString.append(word[i])
+                    coloredString.append(NSAttributedString(string:space))
+                    }
+                    //赤文字変更後をラベルに表示
+                    detectedTextLabel.attributedText = coloredString
                 }
 
         }

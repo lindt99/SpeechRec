@@ -8,13 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		BA083D6024912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png in Resources */ = {isa = PBXBuildFile; fileRef = BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */; };
+		BA61F5582565863500D40336 /* icon167.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54A2565863500D40336 /* icon167.png */; };
+		BA61F5592565863500D40336 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54B2565863500D40336 /* icon.png */; };
+		BA61F55A2565863500D40336 /* icon29.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54C2565863500D40336 /* icon29.png */; };
+		BA61F55B2565863500D40336 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54D2565863500D40336 /* icon1024.png */; };
+		BA61F55C2565863500D40336 /* icon60.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54E2565863500D40336 /* icon60.png */; };
+		BA61F55D2565863500D40336 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54F2565863500D40336 /* icon76.png */; };
+		BA61F55E2565863500D40336 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5502565863500D40336 /* icon58.png */; };
+		BA61F55F2565863500D40336 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5512565863500D40336 /* icon40.png */; };
+		BA61F5602565863500D40336 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5522565863500D40336 /* icon80.png */; };
+		BA61F5612565863500D40336 /* icon87.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5532565863500D40336 /* icon87.png */; };
+		BA61F5622565863500D40336 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5542565863500D40336 /* icon120.png */; };
+		BA61F5632565863500D40336 /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5552565863500D40336 /* icon152.png */; };
+		BA61F5642565863500D40336 /* icon20.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5562565863500D40336 /* icon20.png */; };
+		BA61F5652565863500D40336 /* icon180.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F5572565863500D40336 /* icon180.png */; };
 		BA68A8D224B3D72700444EF7 /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F06D824B206E400757B52 /* Diff.framework */; };
 		BA68A8D324B3D72700444EF7 /* Diff.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F06D824B206E400757B52 /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA80A4B424BF7DC800D76CE4 /* hat-02.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4A924BF7DC700D76CE4 /* hat-02.png */; };
 		BA80A4BA24BF7F1300D76CE4 /* hatredr.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4B824BF7F1300D76CE4 /* hatredr.png */; };
 		BA80A4BB24BF7F1300D76CE4 /* hatgreenr.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4B924BF7F1300D76CE4 /* hatgreenr.png */; };
 		BA80A4BD24BF816600D76CE4 /* hatnone.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4BC24BF816600D76CE4 /* hatnone.png */; };
-		BA80A4BF24BF883700D76CE4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4BE24BF883700D76CE4 /* icon.png */; };
 		BA8C79C1248807D600C634CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C0248807D600C634CE /* AppDelegate.swift */; };
 		BA8C79C3248807D600C634CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C2248807D600C634CE /* ViewController.swift */; };
 		BA8C79C6248807D600C634CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8C79C4248807D600C634CE /* Main.storyboard */; };
@@ -105,11 +118,25 @@
 		BA3F06CB24B206E400757B52 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		BA3F06CE24B206E400757B52 /* Diff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diff.swift; sourceTree = "<group>"; };
 		BA3F06CF24B206E400757B52 /* Diff+NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diff+NSString.swift"; sourceTree = "<group>"; };
+		BA61F548256584A600D40336 /* SpeechRec.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeechRec.entitlements; sourceTree = "<group>"; };
+		BA61F54A2565863500D40336 /* icon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon167.png; sourceTree = "<group>"; };
+		BA61F54B2565863500D40336 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		BA61F54C2565863500D40336 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29.png; sourceTree = "<group>"; };
+		BA61F54D2565863500D40336 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
+		BA61F54E2565863500D40336 /* icon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon60.png; sourceTree = "<group>"; };
+		BA61F54F2565863500D40336 /* icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon76.png; sourceTree = "<group>"; };
+		BA61F5502565863500D40336 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
+		BA61F5512565863500D40336 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon40.png; sourceTree = "<group>"; };
+		BA61F5522565863500D40336 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		BA61F5532565863500D40336 /* icon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon87.png; sourceTree = "<group>"; };
+		BA61F5542565863500D40336 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		BA61F5552565863500D40336 /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
+		BA61F5562565863500D40336 /* icon20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon20.png; sourceTree = "<group>"; };
+		BA61F5572565863500D40336 /* icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon180.png; sourceTree = "<group>"; };
 		BA80A4A924BF7DC700D76CE4 /* hat-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hat-02.png"; path = "../../hat-02.png"; sourceTree = "<group>"; };
 		BA80A4B824BF7F1300D76CE4 /* hatredr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hatredr.png; path = ../../hatredr.png; sourceTree = "<group>"; };
 		BA80A4B924BF7F1300D76CE4 /* hatgreenr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hatgreenr.png; path = ../../hatgreenr.png; sourceTree = "<group>"; };
 		BA80A4BC24BF816600D76CE4 /* hatnone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hatnone.png; path = ../../hatnone.png; sourceTree = "<group>"; };
-		BA80A4BE24BF883700D76CE4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		BA8C79BD248807D600C634CE /* SpeechRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8C79C0248807D600C634CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8C79C2248807D600C634CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +251,28 @@
 			path = Diff;
 			sourceTree = "<group>";
 		};
+		BA61F5492565863500D40336 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				BA61F54B2565863500D40336 /* icon.png */,
+				BA61F54A2565863500D40336 /* icon167.png */,
+				BA61F54C2565863500D40336 /* icon29.png */,
+				BA61F54D2565863500D40336 /* icon1024.png */,
+				BA61F54E2565863500D40336 /* icon60.png */,
+				BA61F54F2565863500D40336 /* icon76.png */,
+				BA61F5502565863500D40336 /* icon58.png */,
+				BA61F5512565863500D40336 /* icon40.png */,
+				BA61F5522565863500D40336 /* icon80.png */,
+				BA61F5532565863500D40336 /* icon87.png */,
+				BA61F5542565863500D40336 /* icon120.png */,
+				BA61F5552565863500D40336 /* icon152.png */,
+				BA61F5562565863500D40336 /* icon20.png */,
+				BA61F5572565863500D40336 /* icon180.png */,
+			);
+			name = icon;
+			path = ../../icon;
+			sourceTree = "<group>";
+		};
 		BA8C79B4248807D600C634CE = {
 			isa = PBXGroup;
 			children = (
@@ -244,7 +293,8 @@
 		BA8C79BF248807D600C634CE /* SpeechRec */ = {
 			isa = PBXGroup;
 			children = (
-				BA80A4BE24BF883700D76CE4 /* icon.png */,
+				BA61F5492565863500D40336 /* icon */,
+				BA61F548256584A600D40336 /* SpeechRec.entitlements */,
 				BA80A4BC24BF816600D76CE4 /* hatnone.png */,
 				BA80A4B924BF7F1300D76CE4 /* hatgreenr.png */,
 				BA80A4B824BF7F1300D76CE4 /* hatredr.png */,
@@ -389,14 +439,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA80A4BA24BF7F1300D76CE4 /* hatredr.png in Resources */,
+				BA61F5602565863500D40336 /* icon80.png in Resources */,
+				BA61F5642565863500D40336 /* icon20.png in Resources */,
 				BA083D6024912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png in Resources */,
-				BA80A4BF24BF883700D76CE4 /* icon.png in Resources */,
+				BA61F5632565863500D40336 /* icon152.png in Resources */,
 				BA8C79CE248807D900C634CE /* LaunchScreen.storyboard in Resources */,
+				BA61F55C2565863500D40336 /* icon60.png in Resources */,
 				BA80A4BD24BF816600D76CE4 /* hatnone.png in Resources */,
 				BA80A4BB24BF7F1300D76CE4 /* hatgreenr.png in Resources */,
 				BA80A4B424BF7DC800D76CE4 /* hat-02.png in Resources */,
+				BA61F5592565863500D40336 /* icon.png in Resources */,
+				BA61F55B2565863500D40336 /* icon1024.png in Resources */,
+				BA61F55E2565863500D40336 /* icon58.png in Resources */,
+				BA61F55F2565863500D40336 /* icon40.png in Resources */,
+				BA61F5652565863500D40336 /* icon180.png in Resources */,
 				BA8C79CB248807D900C634CE /* Assets.xcassets in Resources */,
+				BA61F5612565863500D40336 /* icon87.png in Resources */,
+				BA61F5622565863500D40336 /* icon120.png in Resources */,
 				BA8C79C6248807D600C634CE /* Main.storyboard in Resources */,
+				BA61F55A2565863500D40336 /* icon29.png in Resources */,
+				BA61F5582565863500D40336 /* icon167.png in Resources */,
+				BA61F55D2565863500D40336 /* icon76.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,16 +656,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6V28RL9533;
+				CODE_SIGN_ENTITLEMENTS = SpeechRec/SpeechRec.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 396285LGRJ;
 				INFOPLIST_FILE = SpeechRec/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.litech.SpeechRec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lindt.SpeechRecTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = SpeechRec_dev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -612,16 +677,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6V28RL9533;
+				CODE_SIGN_ENTITLEMENTS = SpeechRec/SpeechRec.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 396285LGRJ;
 				INFOPLIST_FILE = SpeechRec/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.litech.SpeechRec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lindt.SpeechRecTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = SpeechRec_prod;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
