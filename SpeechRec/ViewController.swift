@@ -34,6 +34,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     let uuid = UIDevice.current.identifierForVendor?.uuidString
     
     var gameModels = [Question]()
+    var currentQ: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +125,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             
                             print("correct pronunciation")
                             
+                        currentQ += 1
+                            
                             //change hat image
                             if (startHat.alpha > 0){
                                 //delete orage hat if still visible
@@ -132,12 +135,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                                 
                             }
                             resultImage.image = UIImage(named: "hatgreenr")
-                            
-                            
-        //                    //test for changing a part of the phrase into green
-        //                    let greenString = NSMutableAttributedString(string: detectedTextLabel.text!)
-        //                    greenString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location: 2, length: 5))
-        //                    detectedTextLabel.attributedText = greenString
                             
 
                             
@@ -154,47 +151,10 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                               }
                             }
                             
-                        //uuid,answer,spokenPhraseをMySQLに保存
-        //                    //POSTリクエスト用の変数定義
-        //                    var postString: String? = nil
-        //                    let urlpost = URL(string: "http://martini.ht.sfc.keio.ac.jp/~lindt/demo.js")!
-        //                    var requestpost = URLRequest(url: urlpost)
-        //                    requestpost.httpMethod = "POST"
-        //
-        //                    //uuid取得
-        //                    let uuid = UIDevice.current.identifierForVendor?.uuidString
-        //                    var answer = "correct"
-        //
-        //                    postString = "uuid=12345"
-        //                    ////      POSTリクエストPHPに送信
-        //
-        //                    requestpost.httpBody = postString?.data(using: .utf8)
-        //                    let taskpost = URLSession.shared.dataTask(with: requestpost, completionHandler: {
-        //                        (data, response, error) in
-        //
-        //                        if error != nil {
-        //                            print(error)
-        //                            return
-        //                        }
-        //
-        //                        print("response: \(response!)")
-        //
-        //                        let phpOutput = String(data: data!, encoding: .utf8)!
-        //                        print("php output: \(phpOutput)")
-        //
-        //
-        //                    })
-        //                    taskpost.resume()
-                        //MySQL終わり
-                            
-                            
-                            
-
-                                       
-
-                            
                             
                         } else{
+                        
+                            currentQ += 1
                             
         //                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
                             
@@ -207,7 +167,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             }
                             resultImage.image = UIImage(named: "hatredr")
                             
-                            let modelarr:[String] = modelPhrase.components(separatedBy: " ")
+                        let modelarr:[String] = question.modelPhrase.components(separatedBy: " ")
                             let voicearr:[String] = bestString.components(separatedBy: " ")
                             
                             let voicearrlength = voicearr.count - 1
@@ -274,7 +234,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBAction func startButton(_ sender: UIButton){
             
-        checkRight(question: gameModels.qNum)
+        configureUI(question: gameModels[currentQ])
+        checkRight(question: gameModels[currentQ])
         
 
     }
