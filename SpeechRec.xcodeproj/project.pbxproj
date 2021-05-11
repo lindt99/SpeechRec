@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		068E9DD4843D5A7F0115C451 /* Pods_SpeechRec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26509DFC397CADCFBE1C908E /* Pods_SpeechRec.framework */; };
 		BA083D6024912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png in Resources */ = {isa = PBXBuildFile; fileRef = BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */; };
 		BA61F5582565863500D40336 /* icon167.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54A2565863500D40336 /* icon167.png */; };
 		BA61F5592565863500D40336 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BA61F54B2565863500D40336 /* icon.png */; };
@@ -28,6 +29,8 @@
 		BA80A4BA24BF7F1300D76CE4 /* hatredr.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4B824BF7F1300D76CE4 /* hatredr.png */; };
 		BA80A4BB24BF7F1300D76CE4 /* hatgreenr.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4B924BF7F1300D76CE4 /* hatgreenr.png */; };
 		BA80A4BD24BF816600D76CE4 /* hatnone.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80A4BC24BF816600D76CE4 /* hatnone.png */; };
+		BA8C20A8264A82EB00682AA8 /* question.csv in Resources */ = {isa = PBXBuildFile; fileRef = BA8C20A7264A82EB00682AA8 /* question.csv */; };
+		BA8C20B1264A87F500682AA8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C20B0264A87F500682AA8 /* StartViewController.swift */; };
 		BA8C79C1248807D600C634CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C0248807D600C634CE /* AppDelegate.swift */; };
 		BA8C79C3248807D600C634CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C2248807D600C634CE /* ViewController.swift */; };
 		BA8C79C6248807D600C634CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8C79C4248807D600C634CE /* Main.storyboard */; };
@@ -103,6 +106,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		26509DFC397CADCFBE1C908E /* Pods_SpeechRec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechRec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58EAAA7E636BBF96F80E7E9D /* Pods-SpeechRec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRec.debug.xcconfig"; path = "Target Support Files/Pods-SpeechRec/Pods-SpeechRec.debug.xcconfig"; sourceTree = "<group>"; };
 		BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スクリーンショット 2020-06-11 0.10.09.png"; sourceTree = "<group>"; };
 		BA3F06B924B206E400757B52 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BA3F06BA24B206E400757B52 /* Diff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Diff.xcodeproj; sourceTree = "<group>"; };
@@ -137,6 +142,8 @@
 		BA80A4B824BF7F1300D76CE4 /* hatredr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hatredr.png; path = ../../hatredr.png; sourceTree = "<group>"; };
 		BA80A4B924BF7F1300D76CE4 /* hatgreenr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hatgreenr.png; path = ../../hatgreenr.png; sourceTree = "<group>"; };
 		BA80A4BC24BF816600D76CE4 /* hatnone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hatnone.png; path = ../../hatnone.png; sourceTree = "<group>"; };
+		BA8C20A7264A82EB00682AA8 /* question.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = question.csv; sourceTree = "<group>"; };
+		BA8C20B0264A87F500682AA8 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		BA8C79BD248807D600C634CE /* SpeechRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8C79C0248807D600C634CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8C79C2248807D600C634CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +152,7 @@
 		BA8C79CA248807D900C634CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA8C79CD248807D900C634CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA8C79CF248807D900C634CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9784AE600FF087C072CCDF6 /* Pods-SpeechRec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRec.release.xcconfig"; path = "Target Support Files/Pods-SpeechRec/Pods-SpeechRec.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA68A8D224B3D72700444EF7 /* Diff.framework in Frameworks */,
+				068E9DD4843D5A7F0115C451 /* Pods_SpeechRec.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +288,7 @@
 				BA8C79BF248807D600C634CE /* SpeechRec */,
 				BA8C79BE248807D600C634CE /* Products */,
 				BAEEEC4A24AD153F0042AC64 /* Frameworks */,
+				E55AB6191F3887EE64920777 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,12 +311,14 @@
 				BA80A4A924BF7DC700D76CE4 /* hat-02.png */,
 				BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */,
 				BA8C79C0248807D600C634CE /* AppDelegate.swift */,
+				BA8C20B0264A87F500682AA8 /* StartViewController.swift */,
 				BA8C79C2248807D600C634CE /* ViewController.swift */,
 				BA8C79C4248807D600C634CE /* Main.storyboard */,
 				BA8C79CA248807D900C634CE /* Assets.xcassets */,
 				BA8C79CC248807D900C634CE /* LaunchScreen.storyboard */,
 				BA8C79CF248807D900C634CE /* Info.plist */,
 				BA8C79C7248807D600C634CE /* SpeechRec.xcdatamodeld */,
+				BA8C20A7264A82EB00682AA8 /* question.csv */,
 			);
 			path = SpeechRec;
 			sourceTree = "<group>";
@@ -315,8 +327,18 @@
 			isa = PBXGroup;
 			children = (
 				BA3F06B824B206E400757B52 /* Diff */,
+				26509DFC397CADCFBE1C908E /* Pods_SpeechRec.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E55AB6191F3887EE64920777 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58EAAA7E636BBF96F80E7E9D /* Pods-SpeechRec.debug.xcconfig */,
+				D9784AE600FF087C072CCDF6 /* Pods-SpeechRec.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,12 +348,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA8C79D2248807D900C634CE /* Build configuration list for PBXNativeTarget "SpeechRec" */;
 			buildPhases = (
+				A27100271E985684C5BCE320 /* [CP] Check Pods Manifest.lock */,
 				BA8C79B9248807D600C634CE /* Sources */,
 				BA8C79BA248807D600C634CE /* Frameworks */,
 				BA8C79BB248807D600C634CE /* Resources */,
 				BAEEEC7B24AD15A10042AC64 /* ShellScript */,
 				BA68A8D424B3D72700444EF7 /* Embed Frameworks */,
 				BA68A8D524B3D7F900444EF7 /* ShellScript */,
+				E7F6EDEFD7BF71FB50EEE1B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -456,6 +480,7 @@
 				BA8C79CB248807D900C634CE /* Assets.xcassets in Resources */,
 				BA61F5612565863500D40336 /* icon87.png in Resources */,
 				BA61F5622565863500D40336 /* icon120.png in Resources */,
+				BA8C20A8264A82EB00682AA8 /* question.csv in Resources */,
 				BA8C79C6248807D600C634CE /* Main.storyboard in Resources */,
 				BA61F55A2565863500D40336 /* icon29.png in Resources */,
 				BA61F5582565863500D40336 /* icon167.png in Resources */,
@@ -466,6 +491,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A27100271E985684C5BCE320 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpeechRec-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BA68A8D524B3D7F900444EF7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,6 +548,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
+		E7F6EDEFD7BF71FB50EEE1B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpeechRec/Pods-SpeechRec-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpeechRec/Pods-SpeechRec-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpeechRec/Pods-SpeechRec-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -509,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8C79C9248807D600C634CE /* SpeechRec.xcdatamodeld in Sources */,
+				BA8C20B1264A87F500682AA8 /* StartViewController.swift in Sources */,
 				BA8C79C3248807D600C634CE /* ViewController.swift in Sources */,
 				BA8C79C1248807D600C634CE /* AppDelegate.swift in Sources */,
 			);
@@ -654,11 +719,18 @@
 		};
 		BA8C79D3248807D900C634CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58EAAA7E636BBF96F80E7E9D /* Pods-SpeechRec.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SpeechRec/SpeechRec.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 396285LGRJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(inherited)\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Bolts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Parse\"",
+					"\"$(PROJECT_DIR)\"",
+				);
 				INFOPLIST_FILE = SpeechRec/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,12 +747,19 @@
 		};
 		BA8C79D4248807D900C634CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9784AE600FF087C072CCDF6 /* Pods-SpeechRec.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SpeechRec/SpeechRec.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 396285LGRJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(inherited)\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Bolts\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Parse\"",
+					"\"$(PROJECT_DIR)\"",
+				);
 				INFOPLIST_FILE = SpeechRec/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
