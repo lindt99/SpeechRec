@@ -55,6 +55,16 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         gameModels.append(Question(modelPhrase: "Hurry up or we'll miss the bus", qNum: 8))
         gameModels.append(Question(modelPhrase: "I hate horror movies", qNum: 9))
         gameModels.append(Question(modelPhrase: "Please take care of my cat", qNum: 10))
+        gameModels.append(Question(modelPhrase: "Shall we drive or go by train?", qNum:11))
+        gameModels.append(Question(modelPhrase: "She plays the viola really well", qNum: 12))
+        gameModels.append(Question(modelPhrase: "Can you wrap that bracelet around my wrist?", qNum: 13))
+        gameModels.append(Question(modelPhrase: "Rob reads reports before running", qNum: 14))
+        gameModels.append(Question(modelPhrase: "I drew a picture of a frog in art class", qNum: 15))
+        gameModels.append(Question(modelPhrase: "I had a French breakfast in Switzerland", qNum: 16))
+        gameModels.append(Question(modelPhrase: "That crazy dragonfly took my pretzel", qNum: 17))
+        gameModels.append(Question(modelPhrase: "I went to visit the aquarium in January", qNum: 18))
+        gameModels.append(Question(modelPhrase: "The air feels really hot upstairs", qNum: 19))
+        gameModels.append(Question(modelPhrase: "I unluckily had a flat tire on the way here", qNum: 20))
     }
     
     private func configureUI(question: Question){
