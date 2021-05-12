@@ -117,6 +117,13 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fww-C8-Q6x">
+                                        <rect key="frame" x="167" y="602" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -141,6 +148,7 @@
                         <outlet property="detectedTextLabel" destination="TVg-RU-5gs" id="kvx-vv-kAT"/>
                         <outlet property="questionLabel" destination="FeS-T4-5fc" id="BrT-Mf-BAl"/>
                         <outlet property="resultImage" destination="xJ6-Fm-QMs" id="ETR-Nk-Q2N"/>
+                        <outlet property="soundLabel" destination="Fww-C8-Q6x" id="OtB-Dn-oDz"/>
                         <outlet property="startHat" destination="Rmb-2T-8h0" id="kjB-FW-djw"/>
                     </connections>
                 </viewController>

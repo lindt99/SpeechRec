@@ -24,6 +24,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var questionLabel: UILabel!
     
+    @IBOutlet var soundLabel:UILabel!
+    
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
@@ -82,6 +84,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     private func playAudio(question: Question){
         
         print("audioname:\(audioUrlString)")
+//        soundLabel.text = "sound playing"
         do {
             try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
