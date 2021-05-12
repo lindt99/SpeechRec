@@ -38,6 +38,9 @@
 		BA8C79C9248807D600C634CE /* SpeechRec.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA8C79C7248807D600C634CE /* SpeechRec.xcdatamodeld */; };
 		BA8C79CB248807D900C634CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8C79CA248807D900C634CE /* Assets.xcassets */; };
 		BA8C79CE248807D900C634CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8C79CC248807D900C634CE /* LaunchScreen.storyboard */; };
+		BAA736B4264B9E050051EDDD /* bread.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAA736B1264B9E050051EDDD /* bread.mp3 */; };
+		BAA736B5264B9E050051EDDD /* lobster.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAA736B2264B9E050051EDDD /* lobster.mp3 */; };
+		BAA736B6264B9E050051EDDD /* millionaire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAA736B3264B9E050051EDDD /* millionaire.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,9 @@
 		BA8C79CA248807D900C634CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA8C79CD248807D900C634CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA8C79CF248807D900C634CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAA736B1264B9E050051EDDD /* bread.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bread.mp3; sourceTree = "<group>"; };
+		BAA736B2264B9E050051EDDD /* lobster.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lobster.mp3; sourceTree = "<group>"; };
+		BAA736B3264B9E050051EDDD /* millionaire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = millionaire.mp3; sourceTree = "<group>"; };
 		D9784AE600FF087C072CCDF6 /* Pods-SpeechRec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRec.release.xcconfig"; path = "Target Support Files/Pods-SpeechRec/Pods-SpeechRec.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -305,6 +311,9 @@
 		BA8C79BF248807D600C634CE /* SpeechRec */ = {
 			isa = PBXGroup;
 			children = (
+				BAA736B1264B9E050051EDDD /* bread.mp3 */,
+				BAA736B2264B9E050051EDDD /* lobster.mp3 */,
+				BAA736B3264B9E050051EDDD /* millionaire.mp3 */,
 				BA61F5492565863500D40336 /* icon */,
 				BA61F548256584A600D40336 /* SpeechRec.entitlements */,
 				BA80A4BC24BF816600D76CE4 /* hatnone.png */,
@@ -475,10 +484,13 @@
 				BA61F55C2565863500D40336 /* icon60.png in Resources */,
 				BA80A4BD24BF816600D76CE4 /* hatnone.png in Resources */,
 				BA80A4BB24BF7F1300D76CE4 /* hatgreenr.png in Resources */,
+				BAA736B5264B9E050051EDDD /* lobster.mp3 in Resources */,
 				BA80A4B424BF7DC800D76CE4 /* hat-02.png in Resources */,
 				BA61F5592565863500D40336 /* icon.png in Resources */,
 				BA61F55B2565863500D40336 /* icon1024.png in Resources */,
+				BAA736B4264B9E050051EDDD /* bread.mp3 in Resources */,
 				BA61F55E2565863500D40336 /* icon58.png in Resources */,
+				BAA736B6264B9E050051EDDD /* millionaire.mp3 in Resources */,
 				BA61F55F2565863500D40336 /* icon40.png in Resources */,
 				BA61F5652565863500D40336 /* icon180.png in Resources */,
 				BA8C79CB248807D900C634CE /* Assets.xcassets in Resources */,

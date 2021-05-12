@@ -18,6 +18,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var startHat: UIImageView!
     @IBOutlet var buttonBG: UIView!
+    @IBOutlet var playBtn: UIButton!
     
     @IBOutlet var testLabel: UILabel!
     
@@ -36,46 +37,76 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     var gameModels = [Question]()
     var currentQ: Int = 0
     
+    var player: AVAudioPlayer?
+    var audioUrlString: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         buttonBG.layer.cornerRadius = 35
         setupQuestionsW1()
         configureUI(question: gameModels.first!)
+        configureAudio(question: gameModels.first!)
     }
     
     private func setupQuestionsW1(){
-        gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1))
-        gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2))
-        gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3))
-        gameModels.append(Question(modelPhrase: "He worked as a volunteer", qNum: 4))
-        gameModels.append(Question(modelPhrase: "I love going to the bookstore", qNum: 5))
-        gameModels.append(Question(modelPhrase: "I read the brochure", qNum: 6))
-        gameModels.append(Question(modelPhrase: "I'm scared to fly in an airplane", qNum: 7))
-        gameModels.append(Question(modelPhrase: "Hurry up or we'll miss the bus", qNum: 8))
-        gameModels.append(Question(modelPhrase: "I hate horror movies", qNum: 9))
-        gameModels.append(Question(modelPhrase: "Please take care of my cat", qNum: 10))
-        gameModels.append(Question(modelPhrase: "Shall we drive or go by train?", qNum:11))
-        gameModels.append(Question(modelPhrase: "She plays the viola really well", qNum: 12))
-        gameModels.append(Question(modelPhrase: "Can you wrap that bracelet around my wrist?", qNum: 13))
-        gameModels.append(Question(modelPhrase: "Rob reads reports before running", qNum: 14))
-        gameModels.append(Question(modelPhrase: "I drew a picture of a frog in art class", qNum: 15))
-        gameModels.append(Question(modelPhrase: "I had a French breakfast in Switzerland", qNum: 16))
-        gameModels.append(Question(modelPhrase: "That crazy dragonfly took my pretzel", qNum: 17))
-        gameModels.append(Question(modelPhrase: "I went to visit the aquarium in January", qNum: 18))
-        gameModels.append(Question(modelPhrase: "The air feels really hot upstairs", qNum: 19))
-        gameModels.append(Question(modelPhrase: "I unluckily had a flat tire on the way here", qNum: 20))
+        gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1, audioName: "bread"))
+        gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2, audioName: "lobster"))
+        gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3, audioName: "millionaire"))
     }
+    
+    
+    
     
     private func configureUI(question: Question){
         questionLabel.text = question.modelPhrase
+        
     }
+    
+    
+    private func configureAudio(question: Question){
+        audioUrlString = Bundle.main.path(forResource: question.audioName, ofType: "mp3")
+    }
+    
+    
     
     struct Question{
         let modelPhrase: String
         let qNum: Int
-        
+        let audioName: String
     }
+    
+    
+    
+    
+    private func playAudio(question: Question){
+        
+        print("audioname:\(audioUrlString)")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            
+            guard let audioUrlString = audioUrlString else{
+                return
+            }
+            
+            player = try AVAudioPlayer(contentsOf: URL(string: audioUrlString)!)
+            
+            guard player == player else{
+                return
+            }
+            if player!.isPlaying{
+                player?.pause()
+            } else {
+                player?.play()
+            }
+        } catch  {
+            print("error occurred")
+        }
+    }
+    
+    
+    
     
     
     
@@ -104,12 +135,14 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
-            if let result = result {
-                self.bestString = result.bestTranscription.formattedString
-                self.detectedTextLabel.text = self.bestString
+            if result != nil{
+                if let result = result {
+                    self.bestString = result.bestTranscription.formattedString
+                    self.detectedTextLabel.text = self.bestString
                 
-            } else if let error = error {
-                print(error)
+                } else if let error = error {
+                    print(error)
+                }
             }
         })
     }
@@ -127,15 +160,14 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                 } else if isRecording == false {
                         recognitionTask?.cancel()
                         StartButton.setTitle("Start", for: .normal)
-
+                    
+                    
                     //stop processing audio
                     audioEngine.inputNode.removeTap(onBus: 0)
                     
                     if question.modelPhrase == bestString{
                             
                             print("correct pronunciation")
-                            
-                        currentQ += 1
                             
                             //change hat image
                             if (startHat.alpha > 0){
@@ -164,9 +196,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             
                         } else{
                         
-                            currentQ += 1
-                            
-        //                    let (diffRange, diffString) = diff(modelPhrase, bestString)!
                             
                             //change hat image
                             if (startHat.alpha > 0){
@@ -189,7 +218,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             
                             for voicearrword in 0...voicearrlength{
                                 word.append(NSAttributedString(string: (voicearr[voicearrword])))
-                                //print("voicearrword: " + String(voicearrword) + "voicearrklen: " + String(voicearrlength) )
                             }
                             
                             print("word:")
@@ -243,13 +271,24 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     @IBAction func startButton(_ sender: UIButton){
-            
-        configureUI(question: gameModels[currentQ])
         checkRight(question: gameModels[currentQ])
         
-
+        configureAudio(question: gameModels[currentQ])
     }
 
 
+    @IBAction func playAudioButton(){
+        playAudio(question: gameModels[currentQ])
+        
+        
+    }
+    
+    @IBAction func nextQuestion(){
+        
+        currentQ += 1
+        
+        configureUI(question: gameModels[currentQ])
+        configureAudio(question: gameModels[currentQ])
+    }
 }
 
