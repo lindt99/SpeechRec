@@ -198,6 +198,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             var result = PFObject(className:"Results")
                             result["uuid"] = uuid
                             result["answer"] = "correct"
+                            result["modelPhrase"] = question.modelPhrase
                             result["spokenPhrase"] = bestString
                             result.saveInBackground {
                               (success: Bool, error: Error?) in
@@ -262,6 +263,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             var result = PFObject(className:"Results")
                             result["uuid"] = uuid
                             result["answer"] = "incorrect"
+                            result["modelPhrase"] = question.modelPhrase
                             result["spokenPhrase"] = bestString
                             result.saveInBackground {
                               (success: Bool, error: Error?) in
@@ -304,10 +306,26 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         currentQ += 1
         if currentQ < gameModels.count{
+            //when there are more questions show the next question and set audio
             configureUI(question: gameModels[currentQ])
             configureAudio(question: gameModels[currentQ])
         } else {
+            //when there are no more questions left move to result screen
             performSegue(withIdentifier: "toResultW1", sender: nil)
+            
+            //send result data to back4app
+            var finalResult = PFObject(className:"finalResultTest1")
+            finalResult["uuid"] = uuid
+            finalResult["totalCorrect"] = correctCount
+            finalResult["totalAttempt"] = attemptCount
+            finalResult.saveInBackground {
+              (success: Bool, error: Error?) in
+              if (success) {
+                // The object has been saved.
+              } else {
+                // There was a problem, check error.description
+              }
+            }
         }
     }
 }
