@@ -41,6 +41,7 @@
 		BAA736B4264B9E050051EDDD /* bread.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAA736B1264B9E050051EDDD /* bread.mp3 */; };
 		BAA736B5264B9E050051EDDD /* lobster.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAA736B2264B9E050051EDDD /* lobster.mp3 */; };
 		BAA736B6264B9E050051EDDD /* millionaire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAA736B3264B9E050051EDDD /* millionaire.mp3 */; };
+		BAAFF528264C231000B847C8 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAFF527264C231000B847C8 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		BAA736B1264B9E050051EDDD /* bread.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bread.mp3; sourceTree = "<group>"; };
 		BAA736B2264B9E050051EDDD /* lobster.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lobster.mp3; sourceTree = "<group>"; };
 		BAA736B3264B9E050051EDDD /* millionaire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = millionaire.mp3; sourceTree = "<group>"; };
+		BAAFF527264C231000B847C8 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		D9784AE600FF087C072CCDF6 /* Pods-SpeechRec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRec.release.xcconfig"; path = "Target Support Files/Pods-SpeechRec/Pods-SpeechRec.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,6 +327,7 @@
 				BA8C79C0248807D600C634CE /* AppDelegate.swift */,
 				BA8C20B0264A87F500682AA8 /* StartViewController.swift */,
 				BA8C79C2248807D600C634CE /* ViewController.swift */,
+				BAAFF527264C231000B847C8 /* ResultViewController.swift */,
 				BA8C79C4248807D600C634CE /* Main.storyboard */,
 				BA8C79CA248807D900C634CE /* Assets.xcassets */,
 				BA8C79CC248807D900C634CE /* LaunchScreen.storyboard */,
@@ -588,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAAFF528264C231000B847C8 /* ResultViewController.swift in Sources */,
 				BA8C79C9248807D600C634CE /* SpeechRec.xcdatamodeld in Sources */,
 				BA8C20B1264A87F500682AA8 /* StartViewController.swift in Sources */,
 				BA8C79C3248807D600C634CE /* ViewController.swift in Sources */,

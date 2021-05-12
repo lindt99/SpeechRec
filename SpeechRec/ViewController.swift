@@ -24,7 +24,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var questionLabel: UILabel!
     
-    @IBOutlet var soundLabel:UILabel!
+    @IBOutlet var resultLabel: UILabel!
     
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -42,6 +42,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     var player: AVAudioPlayer?
     var audioUrlString: String!
     
+    var correctCount = 0
+    var attemptCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -49,6 +52,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         setupQuestionsW1()
         configureUI(question: gameModels.first!)
         configureAudio(question: gameModels.first!)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultVC = segue.destination as! ResultViewController
+        resultVC.correct = correctCount
+        resultVC.attempt = attemptCount
     }
     
     private func setupQuestionsW1(){
@@ -98,7 +107,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             guard player == player else{
                 return
             }
-            if player!.isPlaying{
+            if player!.isPlaying == true{
                 player?.pause()
             } else {
                 player?.play()
@@ -152,6 +161,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     func checkRight(question:Question){
 
+        
                 
                 isRecording.toggle()
                         
@@ -163,7 +173,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                 } else if isRecording == false {
                         recognitionTask?.cancel()
                         StartButton.setTitle("Start", for: .normal)
-                    
+                    attemptCount += 1
                     
                     //stop processing audio
                     audioEngine.inputNode.removeTap(onBus: 0)
@@ -171,7 +181,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     if question.modelPhrase == bestString{
                             
                             print("correct pronunciation")
-                            
+                        correctCount += 1
+                        resultLabel.text = "Result: Correct!"
+                        
                             //change hat image
                             if (startHat.alpha > 0){
                                 //delete orage hat if still visible
@@ -200,6 +212,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                         } else{
                         
                             
+                        resultLabel.text = "Result: Incorrect"
                             //change hat image
                             if (startHat.alpha > 0){
                                 //delete orange hat if still visible
@@ -270,6 +283,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             detectedTextLabel.attributedText = coloredString
                         }
 
+                    print("correct:\(correctCount),no. attempt:\(attemptCount)")
                 }
     }
     
@@ -289,9 +303,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     @IBAction func nextQuestion(){
         
         currentQ += 1
-        
-        configureUI(question: gameModels[currentQ])
-        configureAudio(question: gameModels[currentQ])
+        if currentQ < gameModels.count{
+            configureUI(question: gameModels[currentQ])
+            configureAudio(question: gameModels[currentQ])
+        } else {
+            performSegue(withIdentifier: "toResultW1", sender: nil)
+        }
     }
 }
 
