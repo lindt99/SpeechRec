@@ -127,6 +127,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     
     func recordAndRecognizeSpeech(){
+        
+        
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat){
@@ -171,6 +173,14 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                         
                 if isRecording == true {
                     
+                    let audioSession = AVAudioSession.sharedInstance()
+                    do {
+                      try audioSession.setCategory(.playAndRecord, options: .defaultToSpeaker)
+                        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)}
+                    catch let error as NSError {
+                      print("ERROR:", error)
+                    }
+                    
                         self.recordAndRecognizeSpeech()
                         StartButton.setTitle("Stop", for: .normal)
                     
@@ -180,6 +190,14 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     attemptCount += 1
                     
                     //stop processing audio
+                    let audioSession = AVAudioSession.sharedInstance()
+                    
+                    do {
+                        try audioSession.setActive(false, options:.notifyOthersOnDeactivation)}
+                    catch let error as NSError {
+                      print("ERROR:", error)
+                    }
+                    
                     audioEngine.inputNode.removeTap(onBus: 0)
                     audioEngine.stop()
                     request.endAudio()
