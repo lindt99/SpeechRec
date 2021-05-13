@@ -96,6 +96,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 //        soundLabel.text = "sound playing"
         do {
             try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setCategory(
+                AVAudioSession.Category.playback
+            )
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
             
             guard let audioUrlString = audioUrlString else{
@@ -110,6 +113,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             if player!.isPlaying == true{
                 player?.pause()
             } else {
+                player?.prepareToPlay()
                 player?.play()
             }
         } catch  {
@@ -177,6 +181,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                     //stop processing audio
                     audioEngine.inputNode.removeTap(onBus: 0)
+                    audioEngine.stop()
+                    request.endAudio()
+                    
                     
                     if question.modelPhrase == bestString{
                             
