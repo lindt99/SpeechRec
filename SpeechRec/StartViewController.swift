@@ -25,6 +25,27 @@ class StartViewController: UIViewController {
         
     }
     
+    @IBAction func startWeek2() {
+        let vc = storyboard?.instantiateViewController(identifier: "questionW2") as! W2ViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startWeek3() {
+        let vc = storyboard?.instantiateViewController(identifier: "questionW3") as! W3ViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startTest() {
+        let vc = storyboard?.instantiateViewController(identifier: "questionTest") as! TestViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
 
     /*
     // MARK: - Navigation
