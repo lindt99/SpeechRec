@@ -26,6 +26,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var resultLabel: UILabel!
     
+    
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
@@ -44,6 +45,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     var correctCount = 0
     var attemptCount = 0
+    var singleAudioCount = 0
+    var totalAudioCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +64,27 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     private func setupQuestionsW1(){
-        gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1, audioName: "bread"))
-        gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2, audioName: "lobster"))
-        gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3, audioName: "millionaire"))
+        gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1, audioName: "1"))
+        gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2, audioName: "2"))
+        gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3, audioName: "3"))
+        gameModels.append(Question(modelPhrase: "He worked as a volunteer", qNum: 4, audioName: "4"))
+        gameModels.append(Question(modelPhrase: "I love going to the bookstore", qNum: 5, audioName: "5"))
+        gameModels.append(Question(modelPhrase: "I read the brochure", qNum: 6, audioName: "6"))
+        gameModels.append(Question(modelPhrase: "I'm scared to fly in an airplane", qNum: 7, audioName: "7"))
+        gameModels.append(Question(modelPhrase: "Hurry up or we'll miss the bus", qNum: 8, audioName: "8"))
+        gameModels.append(Question(modelPhrase: "I hate horror movies", qNum: 9, audioName: "9"))
+        gameModels.append(Question(modelPhrase: "Please take care of my cat", qNum: 10, audioName: "10"))
+        gameModels.append(Question(modelPhrase: "Shall we drive or go by train", qNum:11, audioName: "11"))
+        gameModels.append(Question(modelPhrase: "She plays the viola really well", qNum: 12, audioName: "12"))
+        gameModels.append(Question(modelPhrase: "Can you wrap that bracelet around my wrist", qNum: 13, audioName: "13"))
+        gameModels.append(Question(modelPhrase: "Rob reads reports before running", qNum: 14, audioName: "14"))
+        gameModels.append(Question(modelPhrase: "I drew a picture of a frog in art class", qNum: 15, audioName: "15"))
+        gameModels.append(Question(modelPhrase: "I had a French breakfast in Switzerland", qNum: 16, audioName: "16"))
+        gameModels.append(Question(modelPhrase: "That crazy dragonfly took my pretzel", qNum: 17, audioName: "17"))
+        gameModels.append(Question(modelPhrase: "I went to visit the aquarium in January", qNum: 18, audioName: "18"))
+        gameModels.append(Question(modelPhrase: "The air feels really hot upstairs", qNum: 19, audioName: "19"))
+        gameModels.append(Question(modelPhrase: "I unluckily had a flat tire on the way here", qNum: 20, audioName: "20"))
+        gameModels.shuffle()
     }
     
     
@@ -115,6 +136,22 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             } else {
                 player?.prepareToPlay()
                 player?.play()
+                totalAudioCount += 1
+                
+                var singleAudioCount = PFObject(className:"audioPlay")
+                singleAudioCount["uuid"] = uuid
+                singleAudioCount["weekNo"] = "W1"
+                singleAudioCount["modelPhrase"] = question.modelPhrase
+                singleAudioCount["qNo"] = question.qNum
+                singleAudioCount.saveInBackground {
+                  (success: Bool, error: Error?) in
+                  if (success) {
+                    // The object has been saved.
+                  } else {
+                    // There was a problem, check error.description
+                  }
+                }
+                
             }
         } catch  {
             print("error occurred")
@@ -220,11 +257,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             
 
                             
-                            var result = PFObject(className:"Results")
+                            var result = PFObject(className:"questionW1")
                             result["uuid"] = uuid
                             result["answer"] = "correct"
-                            result["modelPhrase"] = question.modelPhrase
                             result["spokenPhrase"] = bestString
+                            result["qNo"] = question.qNum
+                            result["modelPhrase"] = question.modelPhrase
                             result.saveInBackground {
                               (success: Bool, error: Error?) in
                               if (success) {
@@ -285,11 +323,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                                 
                             }
                             
-                            var result = PFObject(className:"Results")
+                            var result = PFObject(className:"questionW1")
                             result["uuid"] = uuid
                             result["answer"] = "incorrect"
-                            result["modelPhrase"] = question.modelPhrase
                             result["spokenPhrase"] = bestString
+                            result["qNo"] = question.qNum
+                            result["modelPhrase"] = question.modelPhrase
                             result.saveInBackground {
                               (success: Bool, error: Error?) in
                               if (success) {
@@ -330,7 +369,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     @IBAction func nextQuestion(){
         
         currentQ += 1
-        if currentQ < gameModels.count{
+//        if currentQ < gameModels.count{
+        if currentQ < 20{
             //when there are more questions show the next question and set audio
             configureUI(question: gameModels[currentQ])
             configureAudio(question: gameModels[currentQ])
@@ -339,10 +379,18 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             performSegue(withIdentifier: "toResultW1", sender: nil)
             
             //send result data to back4app
-            var finalResult = PFObject(className:"finalResultTest1")
+            var finalResult = PFObject(className:"finalResultW1")
             finalResult["uuid"] = uuid
-            finalResult["totalCorrect"] = correctCount
             finalResult["totalAttempt"] = attemptCount
+            finalResult["totalCorrect"] = correctCount
+            if attemptCount < 1{
+                finalResult["correctRate"] = 0
+            } else if correctCount < 1{
+                finalResult["correctRate"] = 0
+            } else{
+                finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+            }
+            finalResult["totalAudioCount"] = totalAudioCount
             finalResult.saveInBackground {
               (success: Bool, error: Error?) in
               if (success) {
@@ -351,7 +399,36 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                 // There was a problem, check error.description
               }
             }
+            
+            var completeCount = PFObject(className:"complete")
+            completeCount["uuid"] = uuid
+            completeCount["weekNo"] = "W1"
+            completeCount["totalAttempt"] = attemptCount
+            completeCount["totalCorrect"] = correctCount
+            if attemptCount < 1{
+                completeCount["correctRate"] = 0
+            } else if correctCount < 1{
+                completeCount["correctRate"] = 0
+            } else{
+                completeCount["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+            }
+            completeCount.saveInBackground {
+              (success: Bool, error: Error?) in
+              if (success) {
+                // The object has been saved.
+              } else {
+                // There was a problem, check error.description
+              }
+            }
+            
         }
     }
+    
+    @IBAction func goToTitle(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    
+    
 }
 

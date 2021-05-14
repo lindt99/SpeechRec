@@ -60,46 +60,46 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
         
         private func setupQuestionsW1(){
-            gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2, audioName: "lobster"))
-            gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3, audioName: "millionaire"))
-            gameModels.append(Question(modelPhrase: "He worked as a volunteer", qNum: 4, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I love going to the bookstore", qNum: 5, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I read the brochure", qNum: 6, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I'm scared to fly in an airplane", qNum: 7, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Hurry up or we'll miss the bus", qNum: 8, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I hate horror movies", qNum: 9, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Please take care of my cat", qNum: 10, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Shall we drive or go by train?", qNum:11, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "She plays the viola really well", qNum: 12, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Can you wrap that bracelet around my wrist", qNum: 13, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Rob reads reports before running", qNum: 14, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I drew a picture of a frog in art class", qNum: 15, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I had a French breakfast in Switzerland", qNum: 16, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "That crazy dragonfly took my pretzel", qNum: 17, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I went to visit the aquarium in January", qNum: 18, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "The air feels really hot upstairs", qNum: 19, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I unluckily had a flat tire on the way here", qNum: 20, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "There was a terrible traffic on the freeway", qNum: 21, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "After a hurricane comes a rainbow", qNum: 22, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "There's an error in your calculation", qNum: 23, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "The stairs were very narrow", qNum: 24, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Do you still live at the same address", qNum: 25, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "She reached for an apple from the fruit bowl", qNum: 26, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "The cheese ravioli is my favorite", qNum: 27, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I would really like a little red umbrella like Laura's", qNum: 28, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "I saw a rainbow while I was listening to the radio in my rowboat", qNum: 29, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "You should recycle that tennis racket or give it to a runner", qNum: 30, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "11 benevolent elephants", qNum: 31, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Divers dive deep", qNum: 32, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "He threw three balls", qNum: 33, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Red Lorry yellow Lorry", qNum: 34, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "We surely shall see the sunshine soon", qNum: 35, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "A big black bear sat on a big black rug", qNum: 36, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Reading alone allows you to really relax", qNum: 37, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Low rent allows regular lending", qNum: 38, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "The bluebird blinks", qNum: 39, audioName: "bread"))
-            gameModels.append(Question(modelPhrase: "Sally sells seashells by the seashore", qNum: 40, audioName: "bread"))
+            gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1, audioName: "1"))
+            gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2, audioName: "2"))
+            gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3, audioName: "3"))
+            gameModels.append(Question(modelPhrase: "He worked as a volunteer", qNum: 4, audioName: "4"))
+            gameModels.append(Question(modelPhrase: "I love going to the bookstore", qNum: 5, audioName: "5"))
+            gameModels.append(Question(modelPhrase: "I read the brochure", qNum: 6, audioName: "6"))
+            gameModels.append(Question(modelPhrase: "I'm scared to fly in an airplane", qNum: 7, audioName: "7"))
+            gameModels.append(Question(modelPhrase: "Hurry up or we'll miss the bus", qNum: 8, audioName: "8"))
+            gameModels.append(Question(modelPhrase: "I hate horror movies", qNum: 9, audioName: "9"))
+            gameModels.append(Question(modelPhrase: "Please take care of my cat", qNum: 10, audioName: "10"))
+            gameModels.append(Question(modelPhrase: "Shall we drive or go by train", qNum:11, audioName: "11"))
+            gameModels.append(Question(modelPhrase: "She plays the viola really well", qNum: 12, audioName: "12"))
+            gameModels.append(Question(modelPhrase: "Can you wrap that bracelet around my wrist", qNum: 13, audioName: "13"))
+            gameModels.append(Question(modelPhrase: "Rob reads reports before running", qNum: 14, audioName: "14"))
+            gameModels.append(Question(modelPhrase: "I drew a picture of a frog in art class", qNum: 15, audioName: "15"))
+            gameModels.append(Question(modelPhrase: "I had a French breakfast in Switzerland", qNum: 16, audioName: "16"))
+            gameModels.append(Question(modelPhrase: "That crazy dragonfly took my pretzel", qNum: 17, audioName: "17"))
+            gameModels.append(Question(modelPhrase: "I went to visit the aquarium in January", qNum: 18, audioName: "18"))
+            gameModels.append(Question(modelPhrase: "The air feels really hot upstairs", qNum: 19, audioName: "19"))
+            gameModels.append(Question(modelPhrase: "I unluckily had a flat tire on the way here", qNum: 20, audioName: "20"))
+            gameModels.append(Question(modelPhrase: "There was a terrible traffic on the freeway", qNum: 21, audioName: "21"))
+            gameModels.append(Question(modelPhrase: "After a hurricane comes a rainbow", qNum: 22, audioName: "22"))
+            gameModels.append(Question(modelPhrase: "There's an error in your calculation", qNum: 23, audioName: "23"))
+            gameModels.append(Question(modelPhrase: "The stairs were very narrow", qNum: 24, audioName: "24"))
+            gameModels.append(Question(modelPhrase: "Do you still live at the same address", qNum: 25, audioName: "25"))
+            gameModels.append(Question(modelPhrase: "She reached for an apple from the fruit bowl", qNum: 26, audioName: "26"))
+            gameModels.append(Question(modelPhrase: "The cheese ravioli is my favorite", qNum: 27, audioName: "27"))
+            gameModels.append(Question(modelPhrase: "I would really like a little red umbrella like Laura's", qNum: 28, audioName: "28"))
+            gameModels.append(Question(modelPhrase: "I saw a rainbow while I was listening to the radio in my rowboat", qNum: 29, audioName: "29"))
+            gameModels.append(Question(modelPhrase: "You should recycle that tennis racket or give it to a runner", qNum: 30, audioName: "30"))
+            gameModels.append(Question(modelPhrase: "11 benevolent elephants", qNum: 31, audioName: "31"))
+            gameModels.append(Question(modelPhrase: "Divers dive deep", qNum: 32, audioName: "32"))
+            gameModels.append(Question(modelPhrase: "He threw three balls", qNum: 33, audioName: "33"))
+            gameModels.append(Question(modelPhrase: "Red Lorry yellow Lorry", qNum: 34, audioName: "34"))
+            gameModels.append(Question(modelPhrase: "We surely shall see the sunshine soon", qNum: 35, audioName: "35"))
+            gameModels.append(Question(modelPhrase: "A big black bear sat on a big black rug", qNum: 36, audioName: "36"))
+            gameModels.append(Question(modelPhrase: "Reading alone allows you to really relax", qNum: 37, audioName: "37"))
+            gameModels.append(Question(modelPhrase: "Low rent allows regular lending", qNum: 38, audioName: "38"))
+            gameModels.append(Question(modelPhrase: "The bluebird blinks", qNum: 39, audioName: "39"))
+            gameModels.append(Question(modelPhrase: "Sally sells seashells by the seashore", qNum: 40, audioName: "40"))
         }
         
         
@@ -256,19 +256,20 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                                 
 
                                 
-                                var result = PFObject(className:"Results")
-                                result["uuid"] = uuid
-                                result["answer"] = "correct"
-                                result["modelPhrase"] = question.modelPhrase
-                                result["spokenPhrase"] = bestString
-                                result.saveInBackground {
-                                  (success: Bool, error: Error?) in
-                                  if (success) {
-                                    // The object has been saved.
-                                  } else {
-                                    // There was a problem, check error.description
-                                  }
-                                }
+                            var result = PFObject(className:"questionTest")
+                            result["uuid"] = uuid
+                            result["answer"] = "correct"
+                            result["spokenPhrase"] = bestString
+                            result["qNo"] = question.qNum
+                            result["modelPhrase"] = question.modelPhrase
+                            result.saveInBackground {
+                              (success: Bool, error: Error?) in
+                              if (success) {
+                                // The object has been saved.
+                              } else {
+                                // There was a problem, check error.description
+                              }
+                            }
                                 
                                 
                             } else{
@@ -321,11 +322,12 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                                     
                                 }
                                 
-                                var result = PFObject(className:"Results")
+                                var result = PFObject(className:"questionTest")
                                 result["uuid"] = uuid
                                 result["answer"] = "incorrect"
-                                result["modelPhrase"] = question.modelPhrase
                                 result["spokenPhrase"] = bestString
+                                result["qNo"] = question.qNum
+                                result["modelPhrase"] = question.modelPhrase
                                 result.saveInBackground {
                                   (success: Bool, error: Error?) in
                                   if (success) {
@@ -375,11 +377,39 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                 performSegue(withIdentifier: "toResultTest", sender: nil)
                 
                 //send result data to back4app
-                var finalResult = PFObject(className:"finalResultTest1")
+                var finalResult = PFObject(className:"finalResultTest")
                 finalResult["uuid"] = uuid
-                finalResult["totalCorrect"] = correctCount
                 finalResult["totalAttempt"] = attemptCount
+                finalResult["totalCorrect"] = correctCount
+                if attemptCount < 1{
+                    finalResult["correctRate"] = 0
+                } else if correctCount < 1{
+                    finalResult["correctRate"] = 0
+                } else{
+                    finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+                }
                 finalResult.saveInBackground {
+                  (success: Bool, error: Error?) in
+                  if (success) {
+                    // The object has been saved.
+                  } else {
+                    // There was a problem, check error.description
+                  }
+                }
+                
+                var completeCount = PFObject(className:"complete")
+                completeCount["uuid"] = uuid
+                completeCount["weekNo"] = "Test"
+                completeCount["totalAttempt"] = attemptCount
+                completeCount["totalCorrect"] = correctCount
+                if attemptCount < 1{
+                    completeCount["correctRate"] = 0
+                } else if correctCount < 1{
+                    completeCount["correctRate"] = 0
+                } else{
+                    completeCount["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+                }
+                completeCount.saveInBackground {
                   (success: Bool, error: Error?) in
                   if (success) {
                     // The object has been saved.
@@ -389,4 +419,9 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                 }
             }
         }
+    
+    @IBAction func goToTitle(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
     }

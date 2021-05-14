@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class StartViewController: UIViewController {
 
     @IBOutlet weak var UUIDLabel: UILabel!
+    
+    let uuid = UIDevice.current.identifierForVendor?.uuidString
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startWeek1() {
+        
         let vc = storyboard?.instantiateViewController(identifier: "questionW1") as! ViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -26,6 +31,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startWeek2() {
+        
         let vc = storyboard?.instantiateViewController(identifier: "questionW2") as! W2ViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -33,6 +39,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startWeek3() {
+    
         let vc = storyboard?.instantiateViewController(identifier: "questionW3") as! W3ViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -40,6 +47,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startTest() {
+        
         let vc = storyboard?.instantiateViewController(identifier: "questionTest") as! TestViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
