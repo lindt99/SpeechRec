@@ -70,7 +70,7 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
         gameModels.append(Question(modelPhrase: "I love going to the bookstore", qNum: 5, audioName: "5"))
         gameModels.append(Question(modelPhrase: "I read the brochure", qNum: 6, audioName: "6"))
         gameModels.append(Question(modelPhrase: "I'm scared to fly in an airplane", qNum: 7, audioName: "7"))
-        gameModels.append(Question(modelPhrase: "Hurry up or we'll miss the bus", qNum: 8, audioName: "8"))
+        gameModels.append(Question(modelPhrase: "Hurry up or we will miss the bus", qNum: 8, audioName: "8"))
         gameModels.append(Question(modelPhrase: "I hate horror movies", qNum: 9, audioName: "9"))
         gameModels.append(Question(modelPhrase: "Please take care of my cat", qNum: 10, audioName: "10"))
         gameModels.append(Question(modelPhrase: "Shall we drive or go by train", qNum:11, audioName: "11"))
