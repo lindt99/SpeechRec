@@ -64,7 +64,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     private func setupQuestionsW1(){
-        gameModels.append(Question(modelPhrase: "I love the bread from Greece", qNum: 1, audioName: "1"))
+        gameModels.append(Question(modelPhrase: "I love the bread from France", qNum: 1, audioName: "1"))
         gameModels.append(Question(modelPhrase: "I'll take the lobster", qNum: 2, audioName: "2"))
         gameModels.append(Question(modelPhrase: "I'd like to be a millionaire", qNum: 3, audioName: "3"))
         gameModels.append(Question(modelPhrase: "He worked as a volunteer", qNum: 4, audioName: "4"))
@@ -77,13 +77,13 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         gameModels.append(Question(modelPhrase: "Shall we drive or go by train", qNum:11, audioName: "11"))
         gameModels.append(Question(modelPhrase: "She plays the viola really well", qNum: 12, audioName: "12"))
         gameModels.append(Question(modelPhrase: "Can you wrap that bracelet around my wrist", qNum: 13, audioName: "13"))
-        gameModels.append(Question(modelPhrase: "Rob reads reports before running", qNum: 14, audioName: "14"))
+        gameModels.append(Question(modelPhrase: "Rob read reports before running", qNum: 14, audioName: "14"))
         gameModels.append(Question(modelPhrase: "I drew a picture of a frog in art class", qNum: 15, audioName: "15"))
         gameModels.append(Question(modelPhrase: "I had a French breakfast in Switzerland", qNum: 16, audioName: "16"))
         gameModels.append(Question(modelPhrase: "That crazy dragonfly took my pretzel", qNum: 17, audioName: "17"))
         gameModels.append(Question(modelPhrase: "I went to visit the aquarium in January", qNum: 18, audioName: "18"))
         gameModels.append(Question(modelPhrase: "The air feels really hot upstairs", qNum: 19, audioName: "19"))
-        gameModels.append(Question(modelPhrase: "I unluckily had a flat tire on the way here", qNum: 20, audioName: "20"))
+        gameModels.append(Question(modelPhrase: "I unfortunately had a flat tire on the way here", qNum: 20, audioName: "20"))
         gameModels.shuffle()
     }
     
