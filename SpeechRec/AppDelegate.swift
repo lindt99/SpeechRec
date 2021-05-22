@@ -10,15 +10,49 @@ import UIKit
 import CoreData
 import Parse
 
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            // アプリ起動中でもアラートと音で通知
+            completionHandler([.alert, .sound])
+            
+        }
+        
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            completionHandler()
+            
+        }
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        
+        // get authorization for notification
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]){
+                (granted, _) in
+                if granted{
+                    UNUserNotificationCenter.current().delegate = self
+                }
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "リマインド";
+        content.body = "英語の発音を練習しましょう"
+        content.sound = UNNotificationSound.default
+        let date = DateComponents(hour:19, minute: 0)
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
+        let request = UNNotificationRequest.init(identifier: "dailyNotification", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
+        center.delegate = self
+        
+        //connect to back4app server
         let configuration = ParseClientConfiguration {
           $0.applicationId = "uljtKAMxZvgsJBHLzQOtfCMujxsfOqQfHPxP1zND"
           $0.clientKey = "3Oc57Re8m2FnrV7TuvYLNBTPTpit0pIKATVufEjx"
@@ -120,3 +154,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//extension AppDelegate: UNUserNotificationCenterDelegate{
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        // アプリ起動中でもアラートと音で通知
+//        completionHandler([.alert, .sound])
+//
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//        completionHandler()
+//
+//    }
+//
+//
+//    func scheduleNotification(notificationType:String){
+//        let content = UNMutableNotificationContent()
+//        content.title = "英語の発音の練習をしましょう"
+//        content.body = ""
+//
+//        let notificationCenter = UNUserNotificationCenter.current()
+//        var dateComponentsDay = DateComponents()
+//        dateComponentsDay.hour = 12
+//        dateComponentsDay.minute = 10
+//
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsDay, repeats: true)
+//
+//        let request = UNNotificationRequest(identifier: "dailynotification", content: content, trigger: trigger)
+//
+//        notificationCenter.add(request) {(error) in
+//            if error != nil {
+//                print(error.debugDescription)
+//            }
+//        }
+//    }
+//
+//}
