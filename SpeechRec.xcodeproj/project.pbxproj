@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		068E9DD4843D5A7F0115C451 /* Pods_SpeechRec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26509DFC397CADCFBE1C908E /* Pods_SpeechRec.framework */; };
 		BA083D6024912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png in Resources */ = {isa = PBXBuildFile; fileRef = BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */; };
+		BA0B319A265BF380004CC6F4 /* W1RViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B3199265BF380004CC6F4 /* W1RViewController.swift */; };
+		BA0B31A3265BF799004CC6F4 /* W2RViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31A2265BF799004CC6F4 /* W2RViewController.swift */; };
+		BA0B31A5265BF7AE004CC6F4 /* W3RViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31A4265BF7AE004CC6F4 /* W3RViewController.swift */; };
 		BA44DA47264D280400F213B2 /* W2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44DA46264D280400F213B2 /* W2ViewController.swift */; };
 		BA44DA50264D28E800F213B2 /* W3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44DA4F264D28E800F213B2 /* W3ViewController.swift */; };
 		BA44DA52264D305200F213B2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44DA51264D305200F213B2 /* TestViewController.swift */; };
@@ -154,6 +157,9 @@
 		26509DFC397CADCFBE1C908E /* Pods_SpeechRec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeechRec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58EAAA7E636BBF96F80E7E9D /* Pods-SpeechRec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeechRec.debug.xcconfig"; path = "Target Support Files/Pods-SpeechRec/Pods-SpeechRec.debug.xcconfig"; sourceTree = "<group>"; };
 		BA083D5F24912F740005D8F5 /* スクリーンショット 2020-06-11 0.10.09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "スクリーンショット 2020-06-11 0.10.09.png"; sourceTree = "<group>"; };
+		BA0B3199265BF380004CC6F4 /* W1RViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W1RViewController.swift; sourceTree = "<group>"; };
+		BA0B31A2265BF799004CC6F4 /* W2RViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2RViewController.swift; sourceTree = "<group>"; };
+		BA0B31A4265BF7AE004CC6F4 /* W3RViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3RViewController.swift; sourceTree = "<group>"; };
 		BA3F06B924B206E400757B52 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BA3F06BA24B206E400757B52 /* Diff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Diff.xcodeproj; sourceTree = "<group>"; };
 		BA3F06BF24B206E400757B52 /* NSStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStringTests.swift; sourceTree = "<group>"; };
@@ -408,6 +414,9 @@
 				BA44DA46264D280400F213B2 /* W2ViewController.swift */,
 				BA44DA4F264D28E800F213B2 /* W3ViewController.swift */,
 				BA44DA51264D305200F213B2 /* TestViewController.swift */,
+				BA0B3199265BF380004CC6F4 /* W1RViewController.swift */,
+				BA0B31A2265BF799004CC6F4 /* W2RViewController.swift */,
+				BA0B31A4265BF7AE004CC6F4 /* W3RViewController.swift */,
 				BA8C79C4248807D600C634CE /* Main.storyboard */,
 				BA8C79CA248807D900C634CE /* Assets.xcassets */,
 				BA8C79CC248807D900C634CE /* LaunchScreen.storyboard */,
@@ -750,12 +759,15 @@
 			files = (
 				BA44DA50264D28E800F213B2 /* W3ViewController.swift in Sources */,
 				BAAFF528264C231000B847C8 /* ResultViewController.swift in Sources */,
+				BA0B31A3265BF799004CC6F4 /* W2RViewController.swift in Sources */,
 				BA44DA52264D305200F213B2 /* TestViewController.swift in Sources */,
+				BA0B31A5265BF7AE004CC6F4 /* W3RViewController.swift in Sources */,
 				BA8C79C9248807D600C634CE /* SpeechRec.xcdatamodeld in Sources */,
 				BA8C20B1264A87F500682AA8 /* StartViewController.swift in Sources */,
 				BA44DA47264D280400F213B2 /* W2ViewController.swift in Sources */,
 				BA8C79C3248807D600C634CE /* ViewController.swift in Sources */,
 				BA8C79C1248807D600C634CE /* AppDelegate.swift in Sources */,
+				BA0B319A265BF380004CC6F4 /* W1RViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +916,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SpeechRec/SpeechRec.entitlements;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 396285LGRJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(inherited)\"",
@@ -934,6 +947,7 @@
 				CODE_SIGN_ENTITLEMENTS = SpeechRec/SpeechRec.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 396285LGRJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(inherited)\"",

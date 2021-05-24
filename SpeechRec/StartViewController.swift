@@ -33,6 +33,8 @@ class StartViewController: UIViewController {
         
     }
     
+
+    
     @IBAction func startWeek2() {
         
         let vc = storyboard?.instantiateViewController(identifier: "questionW2") as! W2ViewController
@@ -52,6 +54,30 @@ class StartViewController: UIViewController {
     @IBAction func startTest() {
         
         let vc = storyboard?.instantiateViewController(identifier: "questionTest") as! TestViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startWeek1Red() {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "questionW1R") as! W1RViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startWeek2Red() {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "questionW2R") as! W2RViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startWeek3Red() {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "questionW3R") as! W3RViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
         
