@@ -156,6 +156,21 @@ class W1RViewController: UIViewController, SFSpeechRecognizerDelegate{
         AVSpeechUtterance(string: question.modelPhrase).rate = 0.45
         
         synthesizer.speak(AVSpeechUtterance(string: question.modelPhrase))
+        
+        var singleAudioCount = PFObject(className:"audioPlay")
+        singleAudioCount["uuid"] = uuid
+        singleAudioCount["weekNo"] = "W1R"
+        singleAudioCount["modelPhrase"] = question.modelPhrase
+        singleAudioCount["qNo"] = question.qNum
+        singleAudioCount.saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            // The object has been saved.
+          } else {
+            // There was a problem, check error.description
+          }
+        }
+        
         totalAudioCount += 1
         
     }
@@ -259,7 +274,7 @@ class W1RViewController: UIViewController, SFSpeechRecognizerDelegate{
                             
 
                             
-                            var result = PFObject(className:"questionW1")
+                            var result = PFObject(className:"questionW1R")
                             result["uuid"] = uuid
                             result["answer"] = "correct"
                             result["spokenPhrase"] = bestString
@@ -325,7 +340,7 @@ class W1RViewController: UIViewController, SFSpeechRecognizerDelegate{
                                 
                             }
                             
-                            var result = PFObject(className:"questionW1")
+                            var result = PFObject(className:"questionW1R")
                             result["uuid"] = uuid
                             result["answer"] = "incorrect"
                             result["spokenPhrase"] = bestString
@@ -381,7 +396,7 @@ class W1RViewController: UIViewController, SFSpeechRecognizerDelegate{
             performSegue(withIdentifier: "toResultW1R", sender: nil)
             
             //send result data to back4app
-            var finalResult = PFObject(className:"finalResultW1")
+            var finalResult = PFObject(className:"finalResultW1R")
             finalResult["uuid"] = uuid
             finalResult["totalAttempt"] = attemptCount
             finalResult["totalCorrect"] = correctCount
@@ -402,9 +417,9 @@ class W1RViewController: UIViewController, SFSpeechRecognizerDelegate{
               }
             }
             
-            var completeCount = PFObject(className:"complete")
+            var completeCount = PFObject(className:"completeRed")
             completeCount["uuid"] = uuid
-            completeCount["weekNo"] = "W1"
+            completeCount["weekNo"] = "W1R"
             completeCount["totalAttempt"] = attemptCount
             completeCount["totalCorrect"] = correctCount
             if attemptCount < 1{

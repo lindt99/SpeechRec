@@ -213,6 +213,21 @@ class W3BViewController: UIViewController {
         AVSpeechUtterance(string: question.modelPhrase).rate = 0.45
         
         synthesizer.speak(AVSpeechUtterance(string: question.modelPhrase))
+        
+        var singleAudioCount = PFObject(className:"audioPlay")
+        singleAudioCount["uuid"] = uuid
+        singleAudioCount["weekNo"] = "W3B"
+        singleAudioCount["modelPhrase"] = question.modelPhrase
+        singleAudioCount["qNo"] = question.qNum
+        singleAudioCount.saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            // The object has been saved.
+          } else {
+            // There was a problem, check error.description
+          }
+        }
+        
         totalAudioCount += 1
         
     }
@@ -438,9 +453,9 @@ class W3BViewController: UIViewController {
             performSegue(withIdentifier: "toResultW3B", sender: nil)
             
             //send result data to back4app
-            var finalResult = PFObject(className:"finalResultW1")
+            var finalResult = PFObject(className:"finalResultW3B")
             finalResult["uuid"] = uuid
-            finalResult["totalAttempt"] = attemptCount
+//            finalResult["totalAttempt"] = attemptCount
 //            finalResult["totalCorrect"] = correctCount
 //            if attemptCount < 1{
 //                finalResult["correctRate"] = 0
@@ -459,18 +474,11 @@ class W3BViewController: UIViewController {
               }
             }
             
-            var completeCount = PFObject(className:"complete")
+            var completeCount = PFObject(className:"completeBlue")
             completeCount["uuid"] = uuid
-            completeCount["weekNo"] = "W1"
-            completeCount["totalAttempt"] = attemptCount
-//            completeCount["totalCorrect"] = correctCount
-//            if attemptCount < 1{
-//                completeCount["correctRate"] = 0
-//            } else if correctCount < 1{
-//                completeCount["correctRate"] = 0
-//            } else{
-//                completeCount["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
-//            }
+            completeCount["weekNo"] = "W3B"
+            completeCount["totalAudioCount"] = totalAudioCount
+            
             completeCount.saveInBackground {
               (success: Bool, error: Error?) in
               if (success) {
