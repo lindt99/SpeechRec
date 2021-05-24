@@ -12,6 +12,10 @@
 		BA0B319A265BF380004CC6F4 /* W1RViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B3199265BF380004CC6F4 /* W1RViewController.swift */; };
 		BA0B31A3265BF799004CC6F4 /* W2RViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31A2265BF799004CC6F4 /* W2RViewController.swift */; };
 		BA0B31A5265BF7AE004CC6F4 /* W3RViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31A4265BF7AE004CC6F4 /* W3RViewController.swift */; };
+		BA0B31A7265C03E5004CC6F4 /* W1BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31A6265C03E5004CC6F4 /* W1BViewController.swift */; };
+		BA0B31A9265C03F4004CC6F4 /* W2BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31A8265C03F4004CC6F4 /* W2BViewController.swift */; };
+		BA0B31AB265C0400004CC6F4 /* W3BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31AA265C0400004CC6F4 /* W3BViewController.swift */; };
+		BA0B31AD265C098F004CC6F4 /* ResultBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B31AC265C098F004CC6F4 /* ResultBViewController.swift */; };
 		BA44DA47264D280400F213B2 /* W2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44DA46264D280400F213B2 /* W2ViewController.swift */; };
 		BA44DA50264D28E800F213B2 /* W3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44DA4F264D28E800F213B2 /* W3ViewController.swift */; };
 		BA44DA52264D305200F213B2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44DA51264D305200F213B2 /* TestViewController.swift */; };
@@ -160,6 +164,10 @@
 		BA0B3199265BF380004CC6F4 /* W1RViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W1RViewController.swift; sourceTree = "<group>"; };
 		BA0B31A2265BF799004CC6F4 /* W2RViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2RViewController.swift; sourceTree = "<group>"; };
 		BA0B31A4265BF7AE004CC6F4 /* W3RViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3RViewController.swift; sourceTree = "<group>"; };
+		BA0B31A6265C03E5004CC6F4 /* W1BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W1BViewController.swift; sourceTree = "<group>"; };
+		BA0B31A8265C03F4004CC6F4 /* W2BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2BViewController.swift; sourceTree = "<group>"; };
+		BA0B31AA265C0400004CC6F4 /* W3BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W3BViewController.swift; sourceTree = "<group>"; };
+		BA0B31AC265C098F004CC6F4 /* ResultBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBViewController.swift; sourceTree = "<group>"; };
 		BA3F06B924B206E400757B52 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BA3F06BA24B206E400757B52 /* Diff.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Diff.xcodeproj; sourceTree = "<group>"; };
 		BA3F06BF24B206E400757B52 /* NSStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStringTests.swift; sourceTree = "<group>"; };
@@ -417,6 +425,10 @@
 				BA0B3199265BF380004CC6F4 /* W1RViewController.swift */,
 				BA0B31A2265BF799004CC6F4 /* W2RViewController.swift */,
 				BA0B31A4265BF7AE004CC6F4 /* W3RViewController.swift */,
+				BA0B31A6265C03E5004CC6F4 /* W1BViewController.swift */,
+				BA0B31A8265C03F4004CC6F4 /* W2BViewController.swift */,
+				BA0B31AA265C0400004CC6F4 /* W3BViewController.swift */,
+				BA0B31AC265C098F004CC6F4 /* ResultBViewController.swift */,
 				BA8C79C4248807D600C634CE /* Main.storyboard */,
 				BA8C79CA248807D900C634CE /* Assets.xcassets */,
 				BA8C79CC248807D900C634CE /* LaunchScreen.storyboard */,
@@ -762,12 +774,16 @@
 				BA0B31A3265BF799004CC6F4 /* W2RViewController.swift in Sources */,
 				BA44DA52264D305200F213B2 /* TestViewController.swift in Sources */,
 				BA0B31A5265BF7AE004CC6F4 /* W3RViewController.swift in Sources */,
+				BA0B31AB265C0400004CC6F4 /* W3BViewController.swift in Sources */,
 				BA8C79C9248807D600C634CE /* SpeechRec.xcdatamodeld in Sources */,
 				BA8C20B1264A87F500682AA8 /* StartViewController.swift in Sources */,
 				BA44DA47264D280400F213B2 /* W2ViewController.swift in Sources */,
+				BA0B31A9265C03F4004CC6F4 /* W2BViewController.swift in Sources */,
 				BA8C79C3248807D600C634CE /* ViewController.swift in Sources */,
 				BA8C79C1248807D600C634CE /* AppDelegate.swift in Sources */,
 				BA0B319A265BF380004CC6F4 /* W1RViewController.swift in Sources */,
+				BA0B31A7265C03E5004CC6F4 /* W1BViewController.swift in Sources */,
+				BA0B31AD265C098F004CC6F4 /* ResultBViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

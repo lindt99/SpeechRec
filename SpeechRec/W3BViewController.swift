@@ -1,5 +1,5 @@
 //
-//  W3RViewController.swift
+//  W3BViewController.swift
 //  SpeechRec
 //
 //  Created by 本田彩 on 2021/05/25.
@@ -7,17 +7,15 @@
 //
 
 import UIKit
-import Speech
-import Diff
 import Parse
 import AVFoundation
 
-class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
+class W3BViewController: UIViewController {
     
-    @IBOutlet var detectedTextLabel: UILabel!
-    @IBOutlet var StartButton: UIButton!
-    @IBOutlet weak var resultImage: UIImageView!
-    @IBOutlet weak var startHat: UIImageView!
+//    @IBOutlet var detectedTextLabel: UILabel!
+//    @IBOutlet var StartButton: UIButton!
+//    @IBOutlet weak var resultImage: UIImageView!
+//    @IBOutlet weak var startHat: UIImageView!
     @IBOutlet var buttonBG: UIView!
 //    @IBOutlet var playBtn: UIButton!
     
@@ -25,14 +23,14 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var questionLabel: UILabel!
     
-    @IBOutlet var resultLabel: UILabel!
+//    @IBOutlet var resultLabel: UILabel!
     
     
-    let audioEngine = AVAudioEngine()
-    let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
-    let request = SFSpeechAudioBufferRecognitionRequest()
-    var recognitionTask: SFSpeechRecognitionTask?
-    var isRecording: Bool = false
+//    let audioEngine = AVAudioEngine()
+//    let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
+//    let request = SFSpeechAudioBufferRecognitionRequest()
+//    var recognitionTask: SFSpeechRecognitionTask?
+//    var isRecording: Bool = false
     var modelPhrase = String("Hello world is the first step to coding")
     var bestString: String = ""
     
@@ -42,7 +40,7 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
     var currentQ: Int = 0
     
     var player: AVAudioPlayer?
-    var audioUrlString: String!
+//    var audioUrlString: String!
     
     var correctCount = 0
     var attemptCount = 0
@@ -61,9 +59,8 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let resultVC = segue.destination as! ResultViewController
-        resultVC.correct = correctCount
-        resultVC.attempt = attemptCount
+        let resultVC = segue.destination as! ResultBViewController
+        resultVC.attempt = totalAudioCount
     }
     
     private func setupQuestionsW1(){
@@ -191,7 +188,8 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     private func configureUI(question: QuestionWord){
         questionLabel.text = question.modelPhrase
-        
+        questionLabel.layer.borderWidth = 5
+        questionLabel.layer.borderColor = UIColor.orange.cgColor
     }
     
     
@@ -224,202 +222,201 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     
     
-    func recordAndRecognizeSpeech(){
-        
-        
-        let node = audioEngine.inputNode
-        let recordingFormat = node.outputFormat(forBus: 0)
-        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat){
-            buffer, _ in self.request.append(buffer)
-        }
-        
-        
-        audioEngine.prepare()
-        do{
-            try audioEngine.start()
-        } catch {
-            return print(error)
-        }
-        
-        
-        guard let myRecognizer = SFSpeechRecognizer() else{
-            return
-        }
-        if !myRecognizer.isAvailable{
-            return
-        }
-        
-        
-        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
-            if result != nil{
-                if let result = result {
-                    self.bestString = result.bestTranscription.formattedString
-                    self.detectedTextLabel.text = self.bestString
-                
-                } else if let error = error {
-                    print(error)
-                }
-            }
-        })
-    }
+//    func recordAndRecognizeSpeech(){
+//
+//
+//        let node = audioEngine.inputNode
+//        let recordingFormat = node.outputFormat(forBus: 0)
+//        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat){
+//            buffer, _ in self.request.append(buffer)
+//        }
+//
+//
+//        audioEngine.prepare()
+//        do{
+//            try audioEngine.start()
+//        } catch {
+//            return print(error)
+//        }
+//
+//
+//        guard let myRecognizer = SFSpeechRecognizer() else{
+//            return
+//        }
+//        if !myRecognizer.isAvailable{
+//            return
+//        }
+//
+//
+//        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
+//            if result != nil{
+//                if let result = result {
+//                    self.bestString = result.bestTranscription.formattedString
+//                    self.detectedTextLabel.text = self.bestString
+//
+//                } else if let error = error {
+//                    print(error)
+//                }
+//            }
+//        })
+//    }
     
-    func checkRight(question:QuestionWord){
-
-        synthesizer.stopSpeaking(at: .immediate)
-        
-                
-                isRecording.toggle()
-                        
-                if isRecording == true {
-                    
-                    let audioSession = AVAudioSession.sharedInstance()
-                    do {
-                      try audioSession.setCategory(.playAndRecord, options: .defaultToSpeaker)
-                        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)}
-                    catch let error as NSError {
-                      print("ERROR:", error)
-                    }
-                    
-                        self.recordAndRecognizeSpeech()
-                        StartButton.setTitle("Stop", for: .normal)
-                    
-                } else if isRecording == false {
-                        recognitionTask?.cancel()
-                        StartButton.setTitle("Start", for: .normal)
-                    attemptCount += 1
-                    
-                    //stop processing audio
-                    let audioSession = AVAudioSession.sharedInstance()
-                    
-                    do {
-                        try audioSession.setActive(false, options:.notifyOthersOnDeactivation)}
-                    catch let error as NSError {
-                      print("ERROR:", error)
-                    }
-                    
-                    audioEngine.inputNode.removeTap(onBus: 0)
-                    audioEngine.stop()
-                    request.endAudio()
-                    
-                    
-                    if question.modelPhrase == bestString{
-                            
-                            print("correct pronunciation")
-                        correctCount += 1
-                        resultLabel.text = "Result: Correct!"
-                        
-                            //change hat image
-                            if (startHat.alpha > 0){
-                                //delete orage hat if still visible
-                                startHat.alpha = 0
-                            } else {
-                                
-                            }
-                            resultImage.image = UIImage(named: "hatgreenr")
-                            
-
-                            
-                            var result = PFObject(className:"questionW1")
-                            result["uuid"] = uuid
-                            result["answer"] = "correct"
-                            result["spokenPhrase"] = bestString
-                            result["qNo"] = question.qNum
-                            result["modelPhrase"] = question.modelPhrase
-                            result.saveInBackground {
-                              (success: Bool, error: Error?) in
-                              if (success) {
-                                // The object has been saved.
-                              } else {
-                                // There was a problem, check error.description
-                              }
-                            }
-                            
-                            
-                        } else{
-                        
-                            
-                        resultLabel.text = "Result: Incorrect"
-                            //change hat image
-                            if (startHat.alpha > 0){
-                                //delete orange hat if still visible
-                                startHat.alpha = 0
-                            } else {
-                                
-                            }
-                            resultImage.image = UIImage(named: "hatredr")
-                            
-                        let modelarr:[String] = question.modelPhrase.components(separatedBy: " ")
-                            let voicearr:[String] = bestString.components(separatedBy: " ")
-                            
-                            let voicearrlength = voicearr.count - 1
-                            
-                            //ordered collection diffing
-                            let diff = voicearr.difference(from: modelarr)
-                            
-                            var word:[NSAttributedString] = []
-                            
-                            for voicearrword in 0...voicearrlength{
-                                word.append(NSAttributedString(string: (voicearr[voicearrword])))
-                            }
-                            
-                            print("word:")
-                            print(word)
-                            
-                            //赤文字設定
-                            let redAttribute:[NSAttributedString.Key:Any]=[
-                                .foregroundColor: UIColor.red
-                            ]
-                            
-                            //赤文字変更後の文字列
-                            let coloredString = NSMutableAttributedString()
-                            
-                            for change in diff{
-                                switch change{
-                                case .remove(let offset, let element, _):
-                                    print("remove index:" + String(offset) + "word:" + element)
-                                case .insert(let offset, let element, _):
-                                    //余計な単語を赤文字にする
-                                    word[offset] = NSAttributedString(string:element, attributes: redAttribute)
-                                    print("offset: " + String(offset) + " string:" + element)
-                                }
-                                
-                            }
-                            
-                            var result = PFObject(className:"questionW1")
-                            result["uuid"] = uuid
-                            result["answer"] = "incorrect"
-                            result["spokenPhrase"] = bestString
-                            result["qNo"] = question.qNum
-                            result["modelPhrase"] = question.modelPhrase
-                            result.saveInBackground {
-                              (success: Bool, error: Error?) in
-                              if (success) {
-                                // The object has been saved.
-                              } else {
-                                // There was a problem, check error.description
-                              }
-                            }
-                            
-                            
-                            
-                            let space = " "
-                            for i in 0...voicearrlength{
-                            coloredString.append(word[i])
-                            coloredString.append(NSAttributedString(string:space))
-                            }
-                            //赤文字変更後をラベルに表示
-                            detectedTextLabel.attributedText = coloredString
-                        }
-
-                    print("correct:\(correctCount),no. attempt:\(attemptCount)")
-                }
-    }
+//    func checkRight(question:QuestionWord){
+//
+//
+//
+//                isRecording.toggle()
+//
+//                if isRecording == true {
+//
+//                    let audioSession = AVAudioSession.sharedInstance()
+//                    do {
+//                      try audioSession.setCategory(.playAndRecord, options: .defaultToSpeaker)
+//                        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)}
+//                    catch let error as NSError {
+//                      print("ERROR:", error)
+//                    }
+//
+//                        self.recordAndRecognizeSpeech()
+//                        StartButton.setTitle("Stop", for: .normal)
+//
+//                } else if isRecording == false {
+//                        recognitionTask?.cancel()
+//                        StartButton.setTitle("Start", for: .normal)
+//                    attemptCount += 1
+//
+//                    //stop processing audio
+//                    let audioSession = AVAudioSession.sharedInstance()
+//
+//                    do {
+//                        try audioSession.setActive(false, options:.notifyOthersOnDeactivation)}
+//                    catch let error as NSError {
+//                      print("ERROR:", error)
+//                    }
+//
+//                    audioEngine.inputNode.removeTap(onBus: 0)
+//                    audioEngine.stop()
+//                    request.endAudio()
+//
+//
+//                    if question.modelPhrase == bestString{
+//
+//                            print("correct pronunciation")
+//                        correctCount += 1
+//                        resultLabel.text = "Result: Correct!"
+//
+//                            //change hat image
+//                            if (startHat.alpha > 0){
+//                                //delete orage hat if still visible
+//                                startHat.alpha = 0
+//                            } else {
+//
+//                            }
+//                            resultImage.image = UIImage(named: "hatgreenr")
+//
+//
+//
+//                            var result = PFObject(className:"questionW1")
+//                            result["uuid"] = uuid
+//                            result["answer"] = "correct"
+//                            result["spokenPhrase"] = bestString
+//                            result["qNo"] = question.qNum
+//                            result["modelPhrase"] = question.modelPhrase
+//                            result.saveInBackground {
+//                              (success: Bool, error: Error?) in
+//                              if (success) {
+//                                // The object has been saved.
+//                              } else {
+//                                // There was a problem, check error.description
+//                              }
+//                            }
+//
+//
+//                        } else{
+//
+//
+//                        resultLabel.text = "Result: Incorrect"
+//                            //change hat image
+//                            if (startHat.alpha > 0){
+//                                //delete orange hat if still visible
+//                                startHat.alpha = 0
+//                            } else {
+//
+//                            }
+//                            resultImage.image = UIImage(named: "hatredr")
+//
+//                        let modelarr:[String] = question.modelPhrase.components(separatedBy: " ")
+//                            let voicearr:[String] = bestString.components(separatedBy: " ")
+//
+//                            let voicearrlength = voicearr.count - 1
+//
+//                            //ordered collection diffing
+//                            let diff = voicearr.difference(from: modelarr)
+//
+//                            var word:[NSAttributedString] = []
+//
+//                            for voicearrword in 0...voicearrlength{
+//                                word.append(NSAttributedString(string: (voicearr[voicearrword])))
+//                            }
+//
+//                            print("word:")
+//                            print(word)
+//
+//                            //赤文字設定
+//                            let redAttribute:[NSAttributedString.Key:Any]=[
+//                                .foregroundColor: UIColor.red
+//                            ]
+//
+//                            //赤文字変更後の文字列
+//                            let coloredString = NSMutableAttributedString()
+//
+//                            for change in diff{
+//                                switch change{
+//                                case .remove(let offset, let element, _):
+//                                    print("remove index:" + String(offset) + "word:" + element)
+//                                case .insert(let offset, let element, _):
+//                                    //余計な単語を赤文字にする
+//                                    word[offset] = NSAttributedString(string:element, attributes: redAttribute)
+//                                    print("offset: " + String(offset) + " string:" + element)
+//                                }
+//
+//                            }
+//
+//                            var result = PFObject(className:"questionW1")
+//                            result["uuid"] = uuid
+//                            result["answer"] = "incorrect"
+//                            result["spokenPhrase"] = bestString
+//                            result["qNo"] = question.qNum
+//                            result["modelPhrase"] = question.modelPhrase
+//                            result.saveInBackground {
+//                              (success: Bool, error: Error?) in
+//                              if (success) {
+//                                // The object has been saved.
+//                              } else {
+//                                // There was a problem, check error.description
+//                              }
+//                            }
+//
+//
+//
+//                            let space = " "
+//                            for i in 0...voicearrlength{
+//                            coloredString.append(word[i])
+//                            coloredString.append(NSAttributedString(string:space))
+//                            }
+//                            //赤文字変更後をラベルに表示
+//                            detectedTextLabel.attributedText = coloredString
+//                        }
+//
+//                    print("correct:\(correctCount),no. attempt:\(attemptCount)")
+//                }
+//    }
     
-    @IBAction func startButton(_ sender: UIButton){
-        checkRight(question: gameModels[currentQ])
-        
-//        configureAudio(question: gameModels[currentQ])
-    }
+//    @IBAction func startButton(_ sender: UIButton){
+//        checkRight(question: gameModels[currentQ])
+//
+////        configureAudio(question: gameModels[currentQ])
+//    }
 
 
     @IBAction func playAudioButton(){
@@ -429,30 +426,29 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     @IBAction func nextQuestion(){
-        synthesizer.stopSpeaking(at: .immediate)
+        
         currentQ += 1
 //        if currentQ < gameModels.count{
-//        if currentQ < 40{
         if currentQ < 40{
-        //when there are more questions show the next question and set audio
+            //when there are more questions show the next question and set audio
             configureUI(question: gameModels[currentQ])
 //            configureAudio(question: gameModels[currentQ])
         } else {
             //when there are no more questions left move to result screen
-            performSegue(withIdentifier: "toResultW3R", sender: nil)
+            performSegue(withIdentifier: "toResultW3B", sender: nil)
             
             //send result data to back4app
             var finalResult = PFObject(className:"finalResultW1")
             finalResult["uuid"] = uuid
             finalResult["totalAttempt"] = attemptCount
-            finalResult["totalCorrect"] = correctCount
-            if attemptCount < 1{
-                finalResult["correctRate"] = 0
-            } else if correctCount < 1{
-                finalResult["correctRate"] = 0
-            } else{
-                finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
-            }
+//            finalResult["totalCorrect"] = correctCount
+//            if attemptCount < 1{
+//                finalResult["correctRate"] = 0
+//            } else if correctCount < 1{
+//                finalResult["correctRate"] = 0
+//            } else{
+//                finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+//            }
             finalResult["totalAudioCount"] = totalAudioCount
             finalResult.saveInBackground {
               (success: Bool, error: Error?) in
@@ -467,14 +463,14 @@ class W3RViewController: UIViewController, SFSpeechRecognizerDelegate {
             completeCount["uuid"] = uuid
             completeCount["weekNo"] = "W1"
             completeCount["totalAttempt"] = attemptCount
-            completeCount["totalCorrect"] = correctCount
-            if attemptCount < 1{
-                completeCount["correctRate"] = 0
-            } else if correctCount < 1{
-                completeCount["correctRate"] = 0
-            } else{
-                completeCount["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
-            }
+//            completeCount["totalCorrect"] = correctCount
+//            if attemptCount < 1{
+//                completeCount["correctRate"] = 0
+//            } else if correctCount < 1{
+//                completeCount["correctRate"] = 0
+//            } else{
+//                completeCount["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+//            }
             completeCount.saveInBackground {
               (success: Bool, error: Error?) in
               if (success) {

@@ -83,6 +83,31 @@ class StartViewController: UIViewController {
         
     }
     
+    @IBAction func startWeek1Blue() {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "questionW1B") as! W1BViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startWeek2Blue() {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "questionW2B") as! W2BViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    @IBAction func startWeek3Blue() {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "questionW3B") as! W3BViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+        
+    }
+    
+    
 
     /*
     // MARK: - Navigation
