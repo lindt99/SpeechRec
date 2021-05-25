@@ -22,6 +22,8 @@ class W1BViewController: UIViewController {
     //    @IBOutlet var testLabel: UILabel!
         
         @IBOutlet var questionLabel: UILabel!
+    
+        @IBOutlet var UUIDLabel: UILabel!
         
     //    @IBOutlet var resultLabel: UILabel!
         
@@ -56,6 +58,7 @@ class W1BViewController: UIViewController {
             setupQuestionsW1()
             configureUI(question: gameModels.first!)
     //        configureAudio(question: gameModels.first!)
+            UUIDLabel.text = uuid
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -156,7 +159,7 @@ class W1BViewController: UIViewController {
             
             synthesizer.speak(AVSpeechUtterance(string: question.modelPhrase))
             
-            var singleAudioCount = PFObject(className:"audioPlay")
+            var singleAudioCount = PFObject(className:"audioPlayV")
             singleAudioCount["uuid"] = uuid
             singleAudioCount["weekNo"] = "W1B"
             singleAudioCount["modelPhrase"] = question.modelPhrase

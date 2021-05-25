@@ -26,6 +26,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var resultLabel: UILabel!
     
+    @IBOutlet var UUIDLabel: UILabel!
+    
     
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
@@ -36,6 +38,10 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     var bestString: String = ""
     
     let uuid = UIDevice.current.identifierForVendor?.uuidString
+    
+
+    
+    
     
     var gameModels = [Question]()
     var currentQ: Int = 0
@@ -55,6 +61,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         setupQuestionsW1()
         configureUI(question: gameModels.first!)
         configureAudio(question: gameModels.first!)
+        UUIDLabel.text = uuid
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

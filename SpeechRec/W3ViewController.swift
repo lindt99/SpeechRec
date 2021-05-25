@@ -26,6 +26,8 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var resultLabel: UILabel!
     
+    @IBOutlet var UUIDLabel: UILabel!
+    
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
@@ -54,6 +56,7 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
         setupQuestionsW1()
         configureUI(question: gameModels.first!)
         configureAudio(question: gameModels.first!)
+        UUIDLabel.text = uuid
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
