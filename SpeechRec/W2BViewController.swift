@@ -42,7 +42,7 @@ class W2BViewController: UIViewController {
         var currentQ: Int = 0
         
         var player: AVAudioPlayer?
-    //    var audioUrlString: String!
+        var audioUrlString: String!
         
         var correctCount = 0
         var attemptCount = 0
@@ -67,93 +67,93 @@ class W2BViewController: UIViewController {
         }
         
         private func setupQuestionsW1(){
-            gameModels.append(QuestionWord(modelPhrase: "Love", qNum: 1))
-            gameModels.append(QuestionWord(modelPhrase: "Bread", qNum: 2))
-            gameModels.append(QuestionWord(modelPhrase: "France", qNum: 3))
-            gameModels.append(QuestionWord(modelPhrase: "Take", qNum: 4))
-            gameModels.append(QuestionWord(modelPhrase: "Lobster", qNum: 5))
-            gameModels.append(QuestionWord(modelPhrase: "Like", qNum: 6))
-            gameModels.append(QuestionWord(modelPhrase: "Millionaire", qNum: 7))
-            gameModels.append(QuestionWord(modelPhrase: "Worked", qNum: 8))
-            gameModels.append(QuestionWord(modelPhrase: "Volunteer", qNum: 9))
-            gameModels.append(QuestionWord(modelPhrase: "Going", qNum: 10))
-            gameModels.append(QuestionWord(modelPhrase: "Bookstore", qNum: 11))
-            gameModels.append(QuestionWord(modelPhrase: "Read", qNum: 12))
-            gameModels.append(QuestionWord(modelPhrase: "Brochure", qNum: 13))
-            gameModels.append(QuestionWord(modelPhrase: "Scared", qNum: 14))
-            gameModels.append(QuestionWord(modelPhrase: "Fly", qNum: 15))
-            gameModels.append(QuestionWord(modelPhrase: "Airplane", qNum: 16))
-            gameModels.append(QuestionWord(modelPhrase: "Hurry", qNum: 17))
-            gameModels.append(QuestionWord(modelPhrase: "Hate", qNum: 18))
-            gameModels.append(QuestionWord(modelPhrase: "Horror", qNum: 19))
-            gameModels.append(QuestionWord(modelPhrase: "Movies", qNum: 20))
-            gameModels.append(QuestionWord(modelPhrase: "Please", qNum: 21))
-            gameModels.append(QuestionWord(modelPhrase: "Care", qNum: 22))
-            gameModels.append(QuestionWord(modelPhrase: "Drive", qNum: 23))
-            gameModels.append(QuestionWord(modelPhrase: "Train", qNum: 24))
-            gameModels.append(QuestionWord(modelPhrase: "Viola", qNum: 25))
-            gameModels.append(QuestionWord(modelPhrase: "Really", qNum: 26))
-            gameModels.append(QuestionWord(modelPhrase: "Well", qNum: 27))
-            gameModels.append(QuestionWord(modelPhrase: "Rap", qNum: 28))
-            gameModels.append(QuestionWord(modelPhrase: "Bracelet", qNum: 29))
-            gameModels.append(QuestionWord(modelPhrase: "Around", qNum: 30))
-            gameModels.append(QuestionWord(modelPhrase: "Wrist", qNum: 31))
-            gameModels.append(QuestionWord(modelPhrase: "Reports", qNum: 32))
-            gameModels.append(QuestionWord(modelPhrase: "Before", qNum: 33))
-            gameModels.append(QuestionWord(modelPhrase: "Running", qNum: 34))
-            gameModels.append(QuestionWord(modelPhrase: "Picture", qNum: 35))
-            gameModels.append(QuestionWord(modelPhrase: "Frog", qNum: 36))
-            gameModels.append(QuestionWord(modelPhrase: "Art", qNum: 37))
-            gameModels.append(QuestionWord(modelPhrase: "Class", qNum: 38))
-            gameModels.append(QuestionWord(modelPhrase: "French", qNum: 39))
-            gameModels.append(QuestionWord(modelPhrase: "Breakfast", qNum: 40))
-            gameModels.append(QuestionWord(modelPhrase: "Switzerland", qNum: 41))
-            gameModels.append(QuestionWord(modelPhrase: "Crazy", qNum: 42))
-            gameModels.append(QuestionWord(modelPhrase: "Dragonfly", qNum: 43))
-            gameModels.append(QuestionWord(modelPhrase: "Pretzel", qNum: 44))
-            gameModels.append(QuestionWord(modelPhrase: "Visit", qNum: 45))
-            gameModels.append(QuestionWord(modelPhrase: "Aquarium", qNum: 46))
-            gameModels.append(QuestionWord(modelPhrase: "January", qNum: 47))
-            gameModels.append(QuestionWord(modelPhrase: "Air", qNum: 48))
-            gameModels.append(QuestionWord(modelPhrase: "Feel", qNum: 49))
-            gameModels.append(QuestionWord(modelPhrase: "Hot", qNum: 50))
-            gameModels.append(QuestionWord(modelPhrase: "Upstairs", qNum: 51))
-            gameModels.append(QuestionWord(modelPhrase: "Unfortunately", qNum: 52))
-            gameModels.append(QuestionWord(modelPhrase: "Flat", qNum: 53))
-            gameModels.append(QuestionWord(modelPhrase: "Tire", qNum: 54))
-            gameModels.append(QuestionWord(modelPhrase: "Here", qNum: 55))
-            gameModels.append(QuestionWord(modelPhrase: "Terrible", qNum: 56))
-            gameModels.append(QuestionWord(modelPhrase: "Traffic", qNum: 57))
-            gameModels.append(QuestionWord(modelPhrase: "Freeway", qNum: 58))
-            gameModels.append(QuestionWord(modelPhrase: "After", qNum: 59))
-            gameModels.append(QuestionWord(modelPhrase: "Hurricane", qNum: 60))
-            gameModels.append(QuestionWord(modelPhrase: "Rainbow", qNum: 61))
-            gameModels.append(QuestionWord(modelPhrase: "Error", qNum: 62))
-            gameModels.append(QuestionWord(modelPhrase: "Calculation", qNum: 63))
-            gameModels.append(QuestionWord(modelPhrase: "Stairs", qNum: 64))
-            gameModels.append(QuestionWord(modelPhrase: "Very", qNum: 65))
-            gameModels.append(QuestionWord(modelPhrase: "Narrow", qNum: 66))
-            gameModels.append(QuestionWord(modelPhrase: "Still", qNum: 67))
-            gameModels.append(QuestionWord(modelPhrase: "Live", qNum: 68))
-            gameModels.append(QuestionWord(modelPhrase: "Same", qNum: 69))
-            gameModels.append(QuestionWord(modelPhrase: "Address", qNum: 70))
-            gameModels.append(QuestionWord(modelPhrase: "Reached", qNum: 71))
-            gameModels.append(QuestionWord(modelPhrase: "Apple", qNum: 72))
-            gameModels.append(QuestionWord(modelPhrase: "Fruit", qNum: 73))
-            gameModels.append(QuestionWord(modelPhrase: "Bowl", qNum: 74))
-            gameModels.append(QuestionWord(modelPhrase: "Ravioli", qNum: 75))
-            gameModels.append(QuestionWord(modelPhrase: "Favorite", qNum: 76))
-            gameModels.append(QuestionWord(modelPhrase: "Little", qNum: 77))
-            gameModels.append(QuestionWord(modelPhrase: "Umbrella", qNum: 78))
-            gameModels.append(QuestionWord(modelPhrase: "While", qNum: 79))
-            gameModels.append(QuestionWord(modelPhrase: "Listening", qNum: 80))
-            gameModels.append(QuestionWord(modelPhrase: "Radio", qNum: 81))
-            gameModels.append(QuestionWord(modelPhrase: "Row boat", qNum: 82))
-            gameModels.append(QuestionWord(modelPhrase: "Recycle", qNum: 83))
-            gameModels.append(QuestionWord(modelPhrase: "Tennis", qNum: 84))
-            gameModels.append(QuestionWord(modelPhrase: "Racket", qNum: 85))
-            gameModels.append(QuestionWord(modelPhrase: "Give", qNum: 86))
-            gameModels.append(QuestionWord(modelPhrase: "Runner", qNum: 87))
+            gameModels.append(QuestionWord(modelPhrase: "Love", qNum: 1, audioName: "love"))
+            gameModels.append(QuestionWord(modelPhrase: "Bread", qNum: 2, audioName: "bread"))
+            gameModels.append(QuestionWord(modelPhrase: "France", qNum: 3, audioName: "France"))
+            gameModels.append(QuestionWord(modelPhrase: "Take", qNum: 4, audioName: "take"))
+            gameModels.append(QuestionWord(modelPhrase: "Lobster", qNum: 5, audioName: "lobster"))
+            gameModels.append(QuestionWord(modelPhrase: "Like", qNum: 6, audioName: "like"))
+            gameModels.append(QuestionWord(modelPhrase: "Millionaire", qNum: 7, audioName: "millionaire"))
+            gameModels.append(QuestionWord(modelPhrase: "Worked", qNum: 8, audioName: "worked"))
+            gameModels.append(QuestionWord(modelPhrase: "Volunteer", qNum: 9, audioName: "volunteer"))
+            gameModels.append(QuestionWord(modelPhrase: "Going", qNum: 10, audioName: "going"))
+            gameModels.append(QuestionWord(modelPhrase: "Bookstore", qNum: 11, audioName: "bookstore"))
+            gameModels.append(QuestionWord(modelPhrase: "Read", qNum: 12, audioName: "read"))
+            gameModels.append(QuestionWord(modelPhrase: "Brochure", qNum: 13, audioName: "brochure"))
+            gameModels.append(QuestionWord(modelPhrase: "Scared", qNum: 14, audioName: "scared"))
+            gameModels.append(QuestionWord(modelPhrase: "Fly", qNum: 15, audioName: "fly"))
+            gameModels.append(QuestionWord(modelPhrase: "Airplane", qNum: 16, audioName: "airplane"))
+            gameModels.append(QuestionWord(modelPhrase: "Hurry", qNum: 17, audioName: "hurry"))
+            gameModels.append(QuestionWord(modelPhrase: "Hate", qNum: 18, audioName: "hate"))
+            gameModels.append(QuestionWord(modelPhrase: "Horror", qNum: 19, audioName: "horror"))
+            gameModels.append(QuestionWord(modelPhrase: "Movies", qNum: 20, audioName: "movies"))
+            gameModels.append(QuestionWord(modelPhrase: "Please", qNum: 21, audioName: "please"))
+            gameModels.append(QuestionWord(modelPhrase: "Care", qNum: 22, audioName: "care"))
+            gameModels.append(QuestionWord(modelPhrase: "Drive", qNum: 23, audioName: "drive"))
+            gameModels.append(QuestionWord(modelPhrase: "Train", qNum: 24, audioName: "train"))
+            gameModels.append(QuestionWord(modelPhrase: "Viola", qNum: 25, audioName: "viola"))
+            gameModels.append(QuestionWord(modelPhrase: "Really", qNum: 26, audioName: "really"))
+            gameModels.append(QuestionWord(modelPhrase: "Well", qNum: 27, audioName: "well"))
+            gameModels.append(QuestionWord(modelPhrase: "Rap", qNum: 28, audioName: "rap"))
+            gameModels.append(QuestionWord(modelPhrase: "Bracelet", qNum: 29, audioName: "bracelet"))
+            gameModels.append(QuestionWord(modelPhrase: "Around", qNum: 30, audioName: "around"))
+            gameModels.append(QuestionWord(modelPhrase: "Wrist", qNum: 31, audioName: "wrist"))
+            gameModels.append(QuestionWord(modelPhrase: "Reports", qNum: 32, audioName: "reports"))
+            gameModels.append(QuestionWord(modelPhrase: "Before", qNum: 33, audioName: "before"))
+            gameModels.append(QuestionWord(modelPhrase: "Running", qNum: 34, audioName: "running"))
+            gameModels.append(QuestionWord(modelPhrase: "Picture", qNum: 35, audioName: "picture"))
+            gameModels.append(QuestionWord(modelPhrase: "Frog", qNum: 36, audioName: "frog"))
+            gameModels.append(QuestionWord(modelPhrase: "Art", qNum: 37, audioName: "art"))
+            gameModels.append(QuestionWord(modelPhrase: "Class", qNum: 38, audioName: "class"))
+            gameModels.append(QuestionWord(modelPhrase: "French", qNum: 39, audioName: "french"))
+            gameModels.append(QuestionWord(modelPhrase: "Breakfast", qNum: 40, audioName: "breakfast"))
+            gameModels.append(QuestionWord(modelPhrase: "Switzerland", qNum: 41, audioName: "switzerland"))
+            gameModels.append(QuestionWord(modelPhrase: "Crazy", qNum: 42, audioName: "crazy"))
+            gameModels.append(QuestionWord(modelPhrase: "Dragonfly", qNum: 43, audioName: "dragonfly"))
+            gameModels.append(QuestionWord(modelPhrase: "Pretzel", qNum: 44, audioName: "pretzel"))
+            gameModels.append(QuestionWord(modelPhrase: "Visit", qNum: 45, audioName: "visit"))
+            gameModels.append(QuestionWord(modelPhrase: "Aquarium", qNum: 46, audioName: "aquarium"))
+            gameModels.append(QuestionWord(modelPhrase: "January", qNum: 47, audioName: "january"))
+            gameModels.append(QuestionWord(modelPhrase: "Air", qNum: 48, audioName: "air"))
+            gameModels.append(QuestionWord(modelPhrase: "Feel", qNum: 49, audioName: "feel"))
+            gameModels.append(QuestionWord(modelPhrase: "Hot", qNum: 50, audioName: "hot"))
+            gameModels.append(QuestionWord(modelPhrase: "Upstairs", qNum: 51, audioName: "upstairs"))
+            gameModels.append(QuestionWord(modelPhrase: "Unfortunately", qNum: 52, audioName: "unfortunately"))
+            gameModels.append(QuestionWord(modelPhrase: "Flat", qNum: 53, audioName: "flat"))
+            gameModels.append(QuestionWord(modelPhrase: "Tire", qNum: 54, audioName: "tire"))
+            gameModels.append(QuestionWord(modelPhrase: "Here", qNum: 55, audioName: "here"))
+            gameModels.append(QuestionWord(modelPhrase: "Terrible", qNum: 56, audioName: "terrible"))
+            gameModels.append(QuestionWord(modelPhrase: "Traffic", qNum: 57, audioName: "traffic"))
+            gameModels.append(QuestionWord(modelPhrase: "Freeway", qNum: 58, audioName: "freeway"))
+            gameModels.append(QuestionWord(modelPhrase: "After", qNum: 59, audioName: "after"))
+            gameModels.append(QuestionWord(modelPhrase: "Hurricane", qNum: 60, audioName: "hurricane"))
+            gameModels.append(QuestionWord(modelPhrase: "Rainbow", qNum: 61, audioName: "rainbow"))
+            gameModels.append(QuestionWord(modelPhrase: "Error", qNum: 62, audioName: "error"))
+            gameModels.append(QuestionWord(modelPhrase: "Calculation", qNum: 63, audioName: "calculation"))
+            gameModels.append(QuestionWord(modelPhrase: "Stairs", qNum: 64, audioName: "stairs"))
+            gameModels.append(QuestionWord(modelPhrase: "Very", qNum: 65, audioName: "very"))
+            gameModels.append(QuestionWord(modelPhrase: "Narrow", qNum: 66, audioName: "narrow"))
+            gameModels.append(QuestionWord(modelPhrase: "Still", qNum: 67, audioName: "still"))
+            gameModels.append(QuestionWord(modelPhrase: "Live", qNum: 68, audioName: "live"))
+            gameModels.append(QuestionWord(modelPhrase: "Same", qNum: 69, audioName: "same"))
+            gameModels.append(QuestionWord(modelPhrase: "Address", qNum: 70, audioName: "address"))
+            gameModels.append(QuestionWord(modelPhrase: "Reached", qNum: 71, audioName: "reached"))
+            gameModels.append(QuestionWord(modelPhrase: "Apple", qNum: 72, audioName: "apple"))
+            gameModels.append(QuestionWord(modelPhrase: "Fruit", qNum: 73, audioName: "fruit"))
+            gameModels.append(QuestionWord(modelPhrase: "Bowl", qNum: 74, audioName: "bowl"))
+            gameModels.append(QuestionWord(modelPhrase: "Ravioli", qNum: 75, audioName: "ravioli"))
+            gameModels.append(QuestionWord(modelPhrase: "Favorite", qNum: 76, audioName: "favorite"))
+            gameModels.append(QuestionWord(modelPhrase: "Little", qNum: 77, audioName: "little"))
+            gameModels.append(QuestionWord(modelPhrase: "Umbrella", qNum: 78, audioName: "umbrella"))
+            gameModels.append(QuestionWord(modelPhrase: "While", qNum: 79, audioName: "while"))
+            gameModels.append(QuestionWord(modelPhrase: "Listening", qNum: 80, audioName: "listening"))
+            gameModels.append(QuestionWord(modelPhrase: "Radio", qNum: 81, audioName: "radio"))
+            gameModels.append(QuestionWord(modelPhrase: "Row boat", qNum: 82, audioName: "rowboat"))
+            gameModels.append(QuestionWord(modelPhrase: "Recycle", qNum: 83, audioName: "recycle"))
+            gameModels.append(QuestionWord(modelPhrase: "Tennis", qNum: 84, audioName: "tennis"))
+            gameModels.append(QuestionWord(modelPhrase: "Racket", qNum: 85, audioName: "racket"))
+            gameModels.append(QuestionWord(modelPhrase: "Give", qNum: 86, audioName: "give"))
+            gameModels.append(QuestionWord(modelPhrase: "Runner", qNum: 87, audioName: "runner"))
             
             
             gameModels.shuffle()
@@ -169,15 +169,16 @@ class W2BViewController: UIViewController {
         }
         
         
-    //    private func configureAudio(question: Question){
-    //        audioUrlString = Bundle.main.path(forResource: question.audioName, ofType: "mp3")
-    //    }
+        private func configureAudio(question: QuestionWord){
+            audioUrlString = Bundle.main.path(forResource: question.audioName, ofType: "mp3")
+        }
         
         
         
         struct QuestionWord{
             let modelPhrase: String
             let qNum: Int
+            let audioName: String
         }
         
         
@@ -185,26 +186,56 @@ class W2BViewController: UIViewController {
         
         private func playAudio(question: QuestionWord){
             
-            AVSpeechUtterance(string: question.modelPhrase).voice = AVSpeechSynthesisVoice(language: "en-US")
-            AVSpeechUtterance(string: question.modelPhrase).rate = 0.45
-            
-            synthesizer.speak(AVSpeechUtterance(string: question.modelPhrase))
-            
-            var singleAudioCount = PFObject(className:"audioPlayV")
-            singleAudioCount["uuid"] = uuid
-            singleAudioCount["weekNo"] = "W2B"
-            singleAudioCount["modelPhrase"] = question.modelPhrase
-            singleAudioCount["qNo"] = question.qNum
-            singleAudioCount.saveInBackground {
-              (success: Bool, error: Error?) in
-              if (success) {
-                // The object has been saved.
-              } else {
-                // There was a problem, check error.description
-              }
+            do {
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setCategory(
+                    AVAudioSession.Category.playback
+                )
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let audioUrlString = audioUrlString else{
+                    return
+                }
+                
+                player = try AVAudioPlayer(contentsOf: URL(string: audioUrlString)!)
+                
+                guard player == player else{
+                    return
+                }
+                if player!.isPlaying == true{
+                    player?.pause()
+                } else {
+                    player?.prepareToPlay()
+                    player?.play()
+                    totalAudioCount += 1
+                    
+                    var singleAudioCount = PFObject(className:"audioPlayV")
+                    singleAudioCount["uuid"] = uuid
+                    singleAudioCount["weekNo"] = "W2B"
+                    singleAudioCount["modelPhrase"] = question.modelPhrase
+                    singleAudioCount["qNo"] = question.qNum
+                    singleAudioCount.saveInBackground {
+                      (success: Bool, error: Error?) in
+                      if (success) {
+                        // The object has been saved.
+                      } else {
+                        // There was a problem, check error.description
+                      }
+                    }
+                    
+                }
+            } catch  {
+                print("error occurred")
             }
             
-            totalAudioCount += 1
+//            AVSpeechUtterance(string: question.modelPhrase).voice = AVSpeechSynthesisVoice(language: "en-US")
+//            AVSpeechUtterance(string: question.modelPhrase).rate = 0.45
+//
+//            synthesizer.speak(AVSpeechUtterance(string: question.modelPhrase))
+            
+            
+            
+//            totalAudioCount += 1
             
         }
         
@@ -411,6 +442,7 @@ class W2BViewController: UIViewController {
 
 
         @IBAction func playAudioButton(){
+            configureAudio(question: gameModels[currentQ])
             playAudio(question: gameModels[currentQ])
             
             
