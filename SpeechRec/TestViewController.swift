@@ -325,20 +325,20 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                                     
                                 }
                                 
-//                                var result = PFObject(className:"questionTest")
-//                                result["uuid"] = uuid
-//                                result["answer"] = "incorrect"
-//                                result["spokenPhrase"] = bestString
-//                                result["qNo"] = question.qNum
-//                                result["modelPhrase"] = question.modelPhrase
-//                                result.saveInBackground {
-//                                  (success: Bool, error: Error?) in
-//                                  if (success) {
-//                                    // The object has been saved.
-//                                  } else {
-//                                    // There was a problem, check error.description
-//                                  }
-//                                }
+                                var result = PFObject(className:"questionTest")
+                                result["uuid"] = uuid
+                                result["answer"] = "incorrect"
+                                result["spokenPhrase"] = bestString
+                                result["qNo"] = question.qNum
+                                result["modelPhrase"] = question.modelPhrase
+                                result.saveInBackground {
+                                  (success: Bool, error: Error?) in
+                                  if (success) {
+                                    // The object has been saved.
+                                  } else {
+                                    // There was a problem, check error.description
+                                  }
+                                }
                                 
                                 
                                 

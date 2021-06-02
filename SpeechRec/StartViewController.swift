@@ -37,17 +37,53 @@ class StartViewController: UIViewController {
     
     @IBAction func startWeek2() {
         
+        var result = PFObject(className:"start")
+            result["uuid"] = uuid
+            result["WeekNo"] = "W2"
+            result.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    // The object has been saved.
+                    
+                } else {
+                    // There was a problem, check error.description
+                    
+                }
+                
+            }
+        
+        
         let vc = storyboard?.instantiateViewController(identifier: "questionW2") as! W2ViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
         
+       
+        
     }
     
     @IBAction func startWeek3() {
+        
+        var result = PFObject(className:"start")
+            result["uuid"] = uuid
+            result["WeekNo"] = "W3"
+            result.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    // The object has been saved.
+                    
+                } else {
+                    // There was a problem, check error.description
+                    
+                }
+                
+            }
+        
     
         let vc = storyboard?.instantiateViewController(identifier: "questionW3") as! W3ViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+        
+        
         
     }
     
@@ -69,6 +105,21 @@ class StartViewController: UIViewController {
     
     @IBAction func startWeek2Red() {
         
+        var result = PFObject(className:"start")
+            result["uuid"] = uuid
+            result["WeekNo"] = "W2R"
+            result.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    // The object has been saved.
+                    
+                } else {
+                    // There was a problem, check error.description
+                    
+                }
+                
+            }
+        
         let vc = storyboard?.instantiateViewController(identifier: "questionW2R") as! W2RViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -76,6 +127,21 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startWeek3Red() {
+        
+        var result = PFObject(className:"start")
+            result["uuid"] = uuid
+            result["WeekNo"] = "W3R"
+            result.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    // The object has been saved.
+                    
+                } else {
+                    // There was a problem, check error.description
+                    
+                }
+                
+            }
         
         let vc = storyboard?.instantiateViewController(identifier: "questionW3R") as! W3RViewController
         vc.modalPresentationStyle = .fullScreen
@@ -93,6 +159,21 @@ class StartViewController: UIViewController {
     
     @IBAction func startWeek2Blue() {
         
+        var result = PFObject(className:"start")
+            result["uuid"] = uuid
+            result["WeekNo"] = "W2B"
+            result.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    // The object has been saved.
+                    
+                } else {
+                    // There was a problem, check error.description
+                    
+                }
+                
+            }
+        
         let vc = storyboard?.instantiateViewController(identifier: "questionW2B") as! W2BViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -100,6 +181,21 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startWeek3Blue() {
+        
+        var result = PFObject(className:"start")
+            result["uuid"] = uuid
+            result["WeekNo"] = "W3B"
+            result.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    // The object has been saved.
+                    
+                } else {
+                    // There was a problem, check error.description
+                    
+                }
+                
+            }
         
         let vc = storyboard?.instantiateViewController(identifier: "questionW3B") as! W3BViewController
         vc.modalPresentationStyle = .fullScreen
