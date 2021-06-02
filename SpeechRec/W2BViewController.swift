@@ -209,19 +209,19 @@ class W2BViewController: UIViewController {
                     player?.play()
                     totalAudioCount += 1
                     
-                    var singleAudioCount = PFObject(className:"audioPlayV")
-                    singleAudioCount["uuid"] = uuid
-                    singleAudioCount["weekNo"] = "W2B"
-                    singleAudioCount["modelPhrase"] = question.modelPhrase
-                    singleAudioCount["qNo"] = question.qNum
-                    singleAudioCount.saveInBackground {
-                      (success: Bool, error: Error?) in
-                      if (success) {
-                        // The object has been saved.
-                      } else {
-                        // There was a problem, check error.description
-                      }
-                    }
+//                    var singleAudioCount = PFObject(className:"audioPlayV")
+//                    singleAudioCount["uuid"] = uuid
+//                    singleAudioCount["weekNo"] = "W2B"
+//                    singleAudioCount["modelPhrase"] = question.modelPhrase
+//                    singleAudioCount["qNo"] = question.qNum
+//                    singleAudioCount.saveInBackground {
+//                      (success: Bool, error: Error?) in
+//                      if (success) {
+//                        // The object has been saved.
+//                      } else {
+//                        // There was a problem, check error.description
+//                      }
+//                    }
                     
                 }
             } catch  {
@@ -461,26 +461,26 @@ class W2BViewController: UIViewController {
                 performSegue(withIdentifier: "toResultW2B", sender: nil)
                 
                 //send result data to back4app
-                var finalResult = PFObject(className:"finalResultW2B")
-                finalResult["uuid"] = uuid
-//                finalResult["totalAttempt"] = attemptCount
-//                finalResult["totalCorrect"] = correctCount
-//                if attemptCount < 1{
-//                    finalResult["correctRate"] = 0
-//                } else if correctCount < 1{
-//                    finalResult["correctRate"] = 0
-//                } else{
-//                    finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+//                var finalResult = PFObject(className:"finalResultW2B")
+//                finalResult["uuid"] = uuid
+////                finalResult["totalAttempt"] = attemptCount
+////                finalResult["totalCorrect"] = correctCount
+////                if attemptCount < 1{
+////                    finalResult["correctRate"] = 0
+////                } else if correctCount < 1{
+////                    finalResult["correctRate"] = 0
+////                } else{
+////                    finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+////                }
+//                finalResult["totalAudioCount"] = totalAudioCount
+//                finalResult.saveInBackground {
+//                  (success: Bool, error: Error?) in
+//                  if (success) {
+//                    // The object has been saved.
+//                  } else {
+//                    // There was a problem, check error.description
+//                  }
 //                }
-                finalResult["totalAudioCount"] = totalAudioCount
-                finalResult.saveInBackground {
-                  (success: Bool, error: Error?) in
-                  if (success) {
-                    // The object has been saved.
-                  } else {
-                    // There was a problem, check error.description
-                  }
-                }
                 
                 var completeCount = PFObject(className:"completeBlue")
                 completeCount["uuid"] = uuid

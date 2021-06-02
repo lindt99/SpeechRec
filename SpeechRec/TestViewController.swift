@@ -259,20 +259,20 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                                 
 
                                 
-                            var result = PFObject(className:"questionTest")
-                            result["uuid"] = uuid
-                            result["answer"] = "correct"
-                            result["spokenPhrase"] = bestString
-                            result["qNo"] = question.qNum
-                            result["modelPhrase"] = question.modelPhrase
-                            result.saveInBackground {
-                              (success: Bool, error: Error?) in
-                              if (success) {
-                                // The object has been saved.
-                              } else {
-                                // There was a problem, check error.description
-                              }
-                            }
+//                            var result = PFObject(className:"questionTest")
+//                            result["uuid"] = uuid
+//                            result["answer"] = "correct"
+//                            result["spokenPhrase"] = bestString
+//                            result["qNo"] = question.qNum
+//                            result["modelPhrase"] = question.modelPhrase
+//                            result.saveInBackground {
+//                              (success: Bool, error: Error?) in
+//                              if (success) {
+//                                // The object has been saved.
+//                              } else {
+//                                // There was a problem, check error.description
+//                              }
+//                            }
                                 
                                 
                             } else{
@@ -325,20 +325,20 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                                     
                                 }
                                 
-                                var result = PFObject(className:"questionTest")
-                                result["uuid"] = uuid
-                                result["answer"] = "incorrect"
-                                result["spokenPhrase"] = bestString
-                                result["qNo"] = question.qNum
-                                result["modelPhrase"] = question.modelPhrase
-                                result.saveInBackground {
-                                  (success: Bool, error: Error?) in
-                                  if (success) {
-                                    // The object has been saved.
-                                  } else {
-                                    // There was a problem, check error.description
-                                  }
-                                }
+//                                var result = PFObject(className:"questionTest")
+//                                result["uuid"] = uuid
+//                                result["answer"] = "incorrect"
+//                                result["spokenPhrase"] = bestString
+//                                result["qNo"] = question.qNum
+//                                result["modelPhrase"] = question.modelPhrase
+//                                result.saveInBackground {
+//                                  (success: Bool, error: Error?) in
+//                                  if (success) {
+//                                    // The object has been saved.
+//                                  } else {
+//                                    // There was a problem, check error.description
+//                                  }
+//                                }
                                 
                                 
                                 
@@ -380,25 +380,25 @@ class TestViewController: UIViewController, SFSpeechRecognizerDelegate {
                 performSegue(withIdentifier: "toResultTest", sender: nil)
                 
                 //send result data to back4app
-                var finalResult = PFObject(className:"finalResultTest")
-                finalResult["uuid"] = uuid
-                finalResult["totalAttempt"] = attemptCount
-                finalResult["totalCorrect"] = correctCount
-                if attemptCount < 1{
-                    finalResult["correctRate"] = 0
-                } else if correctCount < 1{
-                    finalResult["correctRate"] = 0
-                } else{
-                    finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
-                }
-                finalResult.saveInBackground {
-                  (success: Bool, error: Error?) in
-                  if (success) {
-                    // The object has been saved.
-                  } else {
-                    // There was a problem, check error.description
-                  }
-                }
+//                var finalResult = PFObject(className:"finalResultTest")
+//                finalResult["uuid"] = uuid
+//                finalResult["totalAttempt"] = attemptCount
+//                finalResult["totalCorrect"] = correctCount
+//                if attemptCount < 1{
+//                    finalResult["correctRate"] = 0
+//                } else if correctCount < 1{
+//                    finalResult["correctRate"] = 0
+//                } else{
+//                    finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+//                }
+//                finalResult.saveInBackground {
+//                  (success: Bool, error: Error?) in
+//                  if (success) {
+//                    // The object has been saved.
+//                  } else {
+//                    // There was a problem, check error.description
+//                  }
+//                }
                 
                 var completeCount = PFObject(className:"complete")
                 completeCount["uuid"] = uuid

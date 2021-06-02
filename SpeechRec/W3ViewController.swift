@@ -160,19 +160,19 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
                 player?.play()
                 totalAudioCount += 1
                 
-                var singleAudioCount = PFObject(className:"audioPlay")
-                singleAudioCount["uuid"] = uuid
-                singleAudioCount["weekNo"] = "W3"
-                singleAudioCount["modelPhrase"] = question.modelPhrase
-                singleAudioCount["qNo"] = question.qNum
-                singleAudioCount.saveInBackground {
-                  (success: Bool, error: Error?) in
-                  if (success) {
-                    // The object has been saved.
-                  } else {
-                    // There was a problem, check error.description
-                  }
-                }
+//                var singleAudioCount = PFObject(className:"audioPlay")
+//                singleAudioCount["uuid"] = uuid
+//                singleAudioCount["weekNo"] = "W3"
+//                singleAudioCount["modelPhrase"] = question.modelPhrase
+//                singleAudioCount["qNo"] = question.qNum
+//                singleAudioCount.saveInBackground {
+//                  (success: Bool, error: Error?) in
+//                  if (success) {
+//                    // The object has been saved.
+//                  } else {
+//                    // There was a problem, check error.description
+//                  }
+//                }
             }
         } catch  {
             print("error occurred")
@@ -278,20 +278,20 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
                             
 
                             
-                        var result = PFObject(className:"questionW3")
-                        result["uuid"] = uuid
-                        result["answer"] = "correct"
-                        result["spokenPhrase"] = bestString
-                        result["qNo"] = question.qNum
-                        result["modelPhrase"] = question.modelPhrase
-                        result.saveInBackground {
-                          (success: Bool, error: Error?) in
-                          if (success) {
-                            // The object has been saved.
-                          } else {
-                            // There was a problem, check error.description
-                          }
-                        }
+//                        var result = PFObject(className:"questionW3")
+//                        result["uuid"] = uuid
+//                        result["answer"] = "correct"
+//                        result["spokenPhrase"] = bestString
+//                        result["qNo"] = question.qNum
+//                        result["modelPhrase"] = question.modelPhrase
+//                        result.saveInBackground {
+//                          (success: Bool, error: Error?) in
+//                          if (success) {
+//                            // The object has been saved.
+//                          } else {
+//                            // There was a problem, check error.description
+//                          }
+//                        }
                             
                             
                         } else{
@@ -344,20 +344,20 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
                                 
                             }
                             
-                            var result = PFObject(className:"questionW3")
-                            result["uuid"] = uuid
-                            result["answer"] = "incorrect"
-                            result["spokenPhrase"] = bestString
-                            result["qNo"] = question.qNum
-                            result["modelPhrase"] = question.modelPhrase
-                            result.saveInBackground {
-                              (success: Bool, error: Error?) in
-                              if (success) {
-                                // The object has been saved.
-                              } else {
-                                // There was a problem, check error.description
-                              }
-                            }
+//                            var result = PFObject(className:"questionW3")
+//                            result["uuid"] = uuid
+//                            result["answer"] = "incorrect"
+//                            result["spokenPhrase"] = bestString
+//                            result["qNo"] = question.qNum
+//                            result["modelPhrase"] = question.modelPhrase
+//                            result.saveInBackground {
+//                              (success: Bool, error: Error?) in
+//                              if (success) {
+//                                // The object has been saved.
+//                              } else {
+//                                // There was a problem, check error.description
+//                              }
+//                            }
                             
                             
                             
@@ -400,32 +400,33 @@ class W3ViewController: UIViewController, SFSpeechRecognizerDelegate {
             performSegue(withIdentifier: "toResultW3", sender: nil)
             
             //send result data to back4app
-            var finalResult = PFObject(className:"finalResultW3")
-            finalResult["uuid"] = uuid
-            finalResult["totalAttempt"] = attemptCount
-            finalResult["totalCorrect"] = correctCount
-            if attemptCount < 1{
-                finalResult["correctRate"] = 0
-            } else if correctCount < 1{
-                finalResult["correctRate"] = 0
-            } else{
-                finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
-            }
-            finalResult["totalAudioCount"] = totalAudioCount
-            finalResult.saveInBackground {
-              (success: Bool, error: Error?) in
-              if (success) {
-                // The object has been saved.
-              } else {
-                // There was a problem, check error.description
-              }
-            }
+//            var finalResult = PFObject(className:"finalResultW3")
+//            finalResult["uuid"] = uuid
+//            finalResult["totalAttempt"] = attemptCount
+//            finalResult["totalCorrect"] = correctCount
+//            if attemptCount < 1{
+//                finalResult["correctRate"] = 0
+//            } else if correctCount < 1{
+//                finalResult["correctRate"] = 0
+//            } else{
+//                finalResult["correctRate"] = Float(Float(correctCount)/Float(attemptCount))*100
+//            }
+//            finalResult["totalAudioCount"] = totalAudioCount
+//            finalResult.saveInBackground {
+//              (success: Bool, error: Error?) in
+//              if (success) {
+//                // The object has been saved.
+//              } else {
+//                // There was a problem, check error.description
+//              }
+//            }
             
             var completeCount = PFObject(className:"complete")
             completeCount["uuid"] = uuid
             completeCount["weekNo"] = "W3"
             completeCount["totalAttempt"] = attemptCount
             completeCount["totalCorrect"] = correctCount
+            completeCount["totalAudioCount"] = totalAudioCount
             if attemptCount < 1{
                 completeCount["correctRate"] = 0
             } else if correctCount < 1{
